@@ -24,10 +24,10 @@ main {
 }
 
 p {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     font-size: 14pt;
     color: #e02041;
-    text-align: right;
+    text-align: justify;
 }
 
 h1 {
@@ -39,7 +39,6 @@ h1 {
 }
 
 img {
-    border: 1px dotted black;
     width: 100%;
 }
 
@@ -71,19 +70,19 @@ img {
     max-width: 230px;
     min-width: 180px;
     height: 100%;
-    transform: translateX(-8px);
     overflow-y: scroll;
     padding: 8px;
     border: 4px solid #e1e1e1;
-    border-radius: 5px;
+    border-radius: 0vh 5vh 5vh 0vh;
     background: #efefef;
 }
 
 #about p {
-    margin: 6px auto;
+    margin: 6% auto;
 }
 
 #references ul li {
+    list-style-type: none;
     margin: 8px auto;
 }
 
