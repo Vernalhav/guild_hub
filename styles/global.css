@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font: 400 14px Roboto, sans-serif;
+    scrollbar-width: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+main {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    filter: brightness(60%);
+}
+
+p {
+    font-family: Helvetica, sans-serif;
+    font-size: 14pt;
+    text-align: justify;
+}
+
+h1 {
+    color: steelblue;
+    margin: 12px auto;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+img {
+    width: 100%;
+}
+
+#map img {
+    width: auto;
+    height: auto;
+}
+
+.close-button {
+    position: absolute;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    color: #efefef;
+    font-size: 20px;
+}
+
+.right-arrow {
+    font-size: 24px;
+}
+
+#side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+
+    width: 20%;
+    height: 100%;
+    max-width: 230px;
+
+    overflow-y: scroll;
+    padding: 8px;
+    border: 4px solid #e1e1e1;
+    border-radius: 0vh 3vw 3vw 0vh;
+    background: #efefef;
+
+    transition: left 1s ease-in;
+}
+
+#side-menu:hover {
+    left:-20%;
+}
+
+#about p {
+    margin: 6% auto;
+}
+
+#references ul li {
+    list-style-type: none;
+    margin: 8px auto;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+#timeline {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    z-index: 1;
+    transform: translateY(8px);
+    overflow-x: scroll;
+    padding: 8px;
+    border: 4px solid #d1d1d1;
+    border-radius: 5px;
+    background: #d5d5ff;
+}
+
+#events-list {
+    height: 100%;
+    display: flex;
+    align-content: space-between;
+    justify-content: center;
+    list-style: none;
+}
+
+#events-list li {
+    margin: auto;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#return-arrow {
+    position: absolute;
+    right: 1vw;
+
+    width: 10%;
+    height: 10%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
