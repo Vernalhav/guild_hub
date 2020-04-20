@@ -24,7 +24,7 @@
     
     <script type="text/javascript">
         function closeMenu(e){
-            document.getElementById("side-menu").style.left = "-20%";
+            document.getElementById("side-menu").style.left = "-100%";
             document.querySelector("main").style.filter = "brightness(100%)"
         }
 
@@ -36,22 +36,22 @@
 </head>
 <body>
     <section id="side-menu">
-        <img src="assets/return-arrow.svg" id="return-arrow" onclick="closeMenu()"/>
-        <img src="assets/guilda-logo.svg" alt="Logo da Guilda das Lendas" />
-        <h1>Guilda das Lendas</h1>
-        <article id="about">
-            <p>Emulari dore dimere matiro, reo dori me interimo matiremo latire dori ameno adapare latiremo.</p>
-            <p>Matiro dore me am, adapare ameno interimo latiremo dori me reo omenare dori latire.</p>
-        </article>
-        <nav id="references">
-            <ul>
-                <li><span class="right-arrow">⇒</span> <a href="#">Pessoas</a></li>
-                <li><span class="right-arrow">⇒</span> <a href="#">Divindades</a></li>
-                <li><span class="right-arrow">⇒</span> <a href="#">Locais</a></li>
-                <li><span class="right-arrow">⇒</span> <a href="#">Itens</a></li>
-            </ul>
-        </nav>
+        <img src="assets/return-arrow.svg" alt="Botão para fechar o menu" id="return-arrow" onclick="closeMenu()"/>
+        <div id="side-menu-content">
+            <img id="guild-logo" src="assets/guilda-logo.svg" alt="Logo da Guilda das Lendas" />
+            <h1 class="text-center">Guilda das Lendas</h1>
+            <h2 class="text-center">Uma wiki interativa para seu mundo de RPG</h2>
+            <nav id="references">
+                <ul>
+                    <li><span class="right-arrow">⇒</span> <a href="#">Pessoas</a></li>
+                    <li><span class="right-arrow">⇒</span> <a href="#">Divindades</a></li>
+                    <li><span class="right-arrow">⇒</span> <a href="#">Locais</a></li>
+                    <li><span class="right-arrow">⇒</span> <a href="#">Itens</a></li>
+                </ul>
+            </nav>
+        </div>
     </section>
+
     <main>
         <img src="assets/menu.svg" id="menu-button" onclick="openMenu()" />
         <section id="map">
