@@ -156,6 +156,12 @@ a:hover {
 
     width: 2.5vw;
     height: 2.5vw;
+
+    background-color: white;
+    border-radius: 0.7vw;
+ 
+    padding: 5px;
+    box-sizing: content-box;
 }
 
 ::-webkit-scrollbar {
