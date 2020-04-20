@@ -25,10 +25,6 @@ main {
     transition: all 0.5s;
 }
 
-img {
-    width: 100%;
-}
-
 .close-button {
     position: absolute;
     right: 8px;
@@ -44,16 +40,13 @@ img {
 }
 
 #side-menu {
-    position: fixed;
-    top: 0;
     left: -100%;
     z-index: 5;
 
-    width: 300px;
     height: 100%;
+    min-height: 100vh;
 
     overflow-y: scroll;
-    padding: 8px;
     background: #8F0C0C;
     border: 1px solid rgba(0, 0, 0, 0.22);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -62,17 +55,13 @@ img {
     transition: left 0.5s ease-in;
 }
 
-#side-menu-content {
-    margin: 1rem;
-}
-
 #side-menu-content h1 {
     font-weight: 700;
     font-size: 2rem;
     line-height: 3rem;
     color: #FFFFFF;
 
-    margin: 1rem 0;
+    margin-bottom: 1rem;
 }
 
 #side-menu-content h2 {
@@ -95,13 +84,6 @@ img {
     color: #BCB7B7;
 }
 
-/* a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1rem;
-    font-weight: 500;
-} */
-
 a:hover {
     text-decoration: underline;
 }
@@ -111,9 +93,8 @@ a:hover {
     height: 80%;
     overflow: scroll;
 }
-
 #map img {
-    size: cover;
+    object-fit: cover;
 }
 
 #timeline {
@@ -149,21 +130,18 @@ a:hover {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
-
     width: 2rem;
+    z-index: 1;
 }
 
 #menu-button {
     cursor: pointer;
 
     position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    width: 2rem;
     z-index: 1;
-
-    top: 1vw;
-    left: 1vw;
-
-    width: 2.5vw;
-    height: 2.5vw;
 }
 
 ::-webkit-scrollbar {

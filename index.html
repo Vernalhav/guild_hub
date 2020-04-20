@@ -35,22 +35,26 @@
     </script>
 </head>
 <body>
-    <section id="side-menu">
-        <img src="assets/return-arrow.svg" alt="Botão para fechar o menu" id="return-arrow" onclick="closeMenu()"/>
-        <div id="side-menu-content">
-            <img id="guild-logo" src="assets/guilda-logo.svg" alt="Logo da Guilda das Lendas" />
-            <h1 class="text-center">Guilda das Lendas</h1>
-            <h2 class="text-center">Uma wiki interativa para seu mundo de RPG</h2>
-            <nav id="references">
-                <ul>
-                    <li><span class="right-arrow">⇒</span> <a href="#">Pessoas</a></li>
-                    <li><span class="right-arrow">⇒</span> <a href="#">Divindades</a></li>
-                    <li><span class="right-arrow">⇒</span> <a href="#">Locais</a></li>
-                    <li><span class="right-arrow">⇒</span> <a href="#">Itens</a></li>
-                </ul>
-            </nav>
-        </div>
-    </section>
+    <div class="row">
+        <section id="side-menu" class="col-10 col-sm-8 col-md-6 col-lg-3">
+            <img src="assets/return-arrow.svg" alt="Botão para fechar o menu" id="return-arrow" onclick="closeMenu()"/>
+            <div class="row justify-content-center">
+                <div id="side-menu-content" class="col-10">
+                    <img id="guild-logo" src="assets/guilda-logo.svg" alt="Logo da Guilda das Lendas" />
+                    <h1 class="text-center">Guilda das Lendas</h1>
+                    <h2 class="text-center">Uma wiki interativa para seu mundo de RPG</h2>
+                    <nav id="references">
+                        <ul>
+                            <li><span class="right-arrow">⇒</span> <a href="#">Pessoas</a></li>
+                            <li><span class="right-arrow">⇒</span> <a href="#">Divindades</a></li>
+                            <li><span class="right-arrow">⇒</span> <a href="#">Locais</a></li>
+                            <li><span class="right-arrow">⇒</span> <a href="#">Itens</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <main>
         <img src="assets/menu.svg" id="menu-button" onclick="openMenu()" />
