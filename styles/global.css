@@ -124,24 +124,32 @@ a:hover {
     font-weight: 500;
 }
 
-#return-arrow {
+.icon {
     cursor: pointer;
+    
+    width: 3rem;
+    z-index: 1;
+    
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: .5rem;
+    padding: .5rem;
+}
 
+.icon:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#return-arrow {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
-    width: 2rem;
-    z-index: 1;
+    background: transparent;
 }
 
 #menu-button {
-    cursor: pointer;
-
     position: absolute;
     top: 1.5rem;
     left: 1.5rem;
-    width: 2rem;
-    z-index: 1;
 }
 
 ::-webkit-scrollbar {
