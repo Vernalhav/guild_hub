@@ -13,10 +13,21 @@
     <meta charset="UTF-8">
     <title>Guild Hub</title>
     <link rel="stylesheet" href="styles/global.css">
+    <script type="text/javascript">
+        function closeMenu(e){
+            document.getElementById("side-menu").style.left = "-20%";
+            document.querySelector("main").style.filter = "brightness(100%)"
+        }
+
+        function openMenu(e){
+            document.getElementById("side-menu").style.left = "0%";
+            document.querySelector("main").style.filter = "brightness(30%)"
+        }
+    </script>
 </head>
 <body>
     <section id="side-menu">
-        <img src="assets/return-arrow.svg" id="return-arrow" />
+        <img src="assets/return-arrow.svg" id="return-arrow" onclick="closeMenu()"/>
         <img src="assets/guilda-logo.svg" alt="Logo da Guilda das Lendas" />
         <h1>Guilda das Lendas</h1>
         <article id="about">
@@ -33,6 +44,7 @@
         </nav>
     </section>
     <main>
+        <img src="assets/menu.svg" id="menu-button" onclick="openMenu()" />
         <section id="map">
             <img src="assets/Condor.png" alt="Mapa do continente Condor">
         </section>

@@ -20,7 +20,8 @@ main {
     right: 0;
     width: 100%;
     height: 100%;
-    filter: brightness(60%);
+
+    transition: all 0.5s;
 }
 
 p {
@@ -63,7 +64,7 @@ img {
 #side-menu {
     position: fixed;
     top: 0;
-    left: 0;
+    left: -20%;
     z-index: 5;
 
     width: 20%;
@@ -76,11 +77,7 @@ img {
     border-radius: 0vh 3vw 3vw 0vh;
     background: #efefef;
 
-    transition: left 1s ease-in;
-}
-
-#side-menu:hover {
-    left:-20%;
+    transition: left 0.5s ease-in;
 }
 
 #about p {
@@ -139,11 +136,26 @@ a:hover {
 }
 
 #return-arrow {
+    cursor: pointer;
+
     position: absolute;
     right: 1vw;
 
-    width: 10%;
-    height: 10%;
+    width: 2.5vw;
+    height: 2.5vw;
+}
+
+#menu-button {
+    cursor: pointer;
+
+    position: absolute;
+    z-index: 1;
+
+    top: 1vw;
+    left: 1vw;
+
+    width: 2.5vw;
+    height: 2.5vw;
 }
 
 ::-webkit-scrollbar {
