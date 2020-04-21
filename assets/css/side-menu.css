@@ -1,0 +1,67 @@
+.close-button {
+    position: absolute;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    color: #efefef;
+    font-size: 1.25rem;
+}
+
+.right-arrow {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+#side-menu {
+    position: fixed;
+    left: -100%;
+    z-index: 5;
+
+    height: 100%;
+    min-height: 100vh;
+
+    overflow-y: scroll;
+    background: #8F0C0C;
+    border: 1px solid rgba(0, 0, 0, 0.22);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 32px 32px 0px;
+
+    transition: left 0.5s ease-in;
+}
+
+#return-arrow {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+}
+
+#side-menu-content h1 {
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 3rem;
+    color: #FFFFFF;
+
+    margin-bottom: 1rem;
+}
+
+#side-menu-content h2 {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #979797;
+}
+
+#references {
+    margin-top: 4rem;
+}
+
+#references ul li,
+#references ul li a {
+    list-style-type: none;
+    margin: .5rem auto;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #BCB7B7;
+}
