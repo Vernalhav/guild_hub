@@ -24,7 +24,7 @@
     font-size: .75rem;
 
     height: 96px;
-    margin-top: 32px;
+    margin-top: 34px;
 }
 
 #timeline-selector {
@@ -34,7 +34,8 @@
 }
 
 #timelines {
-    height: 96px;
+    height: 104px;
+    padding-bottom: 8px;
 
     position: absolute;
     left: 0;
@@ -44,8 +45,26 @@
 }
 
 .timeline {
-    border-bottom: 3px solid;
+    border-bottom: 4px solid;
     width: 3000px;
+}
+
+.events-list {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.event {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: 20px;
+    left: 98vw;
+    z-index: 2;
+
+    border: 4px solid;
+    border-radius: 24px;
 }
 
 #selector-header {
@@ -67,10 +86,23 @@
     color: var(--primary-color);
 }
 
+.event.timeline-1 {
+    background-color: var(--primary-color-1);
+}
+
 .timeline-2 {
     color: var(--secondary-color);
 }
 
+.event.timeline-2 {
+    background-color: var(--secondary-color-1);
+}
+
 .timeline-3 {
     color: var(--complementary-color);
+
+}
+
+.event.timeline-3 {
+    background-color: var(--complementary-color-1);
 }
