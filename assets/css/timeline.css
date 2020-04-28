@@ -3,7 +3,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 20%;
+    height: 160px;
     z-index: 1;
     padding: 8px;
     background: var(--light-color);
@@ -11,16 +11,66 @@
     box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#events-list {
-    height: 100%;
-    display: flex;
-    align-content: space-between;
-    justify-content: center;
-    list-style: none;
+#event-year {
+    margin-left: 2rem;
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: var(--dark-color-2);
 }
 
-#events-list li {
-    margin: auto;
+#timelines-headers {
+    margin-right: 2rem;
+    text-align: right;
+    font-size: .75rem;
+
+    height: 96px;
+    margin-top: 32px;
+}
+
+#timeline-selector {
+    position: absolute;
+    top: 1rem;
+    width: 100%;
+}
+
+#timelines {
+    height: 96px;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40px;
+    overflow-x: scroll;
+}
+
+.timeline {
+    border-bottom: 3px solid;
+    width: 3000px;
+}
+
+#selector-header {
+    background-color: var(--dark-color-2);
+    border-radius: .5rem;
+
     font-size: 1rem;
+    text-align: center;
     font-weight: 500;
+    padding: .25rem;
+}
+
+#selector-handler {
+    border-left: .25rem solid var(--dark-color-2);
+    height: 96px;
+}
+
+.timeline-1 {
+    color: var(--primary-color);
+}
+
+.timeline-2 {
+    color: var(--secondary-color);
+}
+
+.timeline-3 {
+    color: var(--complementary-color);
 }

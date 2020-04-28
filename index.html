@@ -69,33 +69,35 @@
 
         <!-- TIMELINE -->
         <section id="timeline">
-            <div id="event-year">937 d.E.</div>
-            <div id="timelines-content">
-                <ul id="timelines-headers">
-                    <li class="timeline-1">Guilda</li>
-                    <li class="timeline-2">Personagens</li>
-                    <li class="timeline-3">Mundo</li>
+            <div class="d-flex justify-content-between">
+                <div id="event-year">937 d.E.</div>
+                <ul id="timelines-headers" class="d-flex flex-column">
+                    <li class="timeline-1 flex-fill">Guilda</li>
+                    <li class="timeline-2 flex-fill">Personagens</li>
+                    <li class="timeline-3 flex-fill">Mundo</li>
                 </ul>
-                <div id="timelines-lines">
-                    <div class="timeline timeline-1">
-                        <ul id="events-list">
-                            <li class="event timeline-1"></li>
-                        </ul>
-                    </div>
-                    <div class="timeline timeline-2">
-                        <ul id="events-list">
-                            <li class="event timeline-2"></li>
-                        </ul>
-                    </div>
-                    <div class="timeline timeline-3">
-                        <ul id="events-list">
-                            <li class="event timeline-3"></li>
-                        </ul>
-                    </div>
+            </div>
+            <div id="timelines" class="d-flex flex-column">
+                <div class="timeline timeline-1 flex-fill">
+                    <ul id="events-list">
+                        <li class="event timeline-1"></li>
+                    </ul>
+                </div>
+                <div class="timeline timeline-2 flex-fill">
+                    <ul id="events-list">
+                        <li class="event timeline-2"></li>
+                    </ul>
+                </div>
+                <div class="timeline timeline-3 flex-fill">
+                    <ul id="events-list">
+                        <li class="event timeline-3"></li>
+                    </ul>
                 </div>
             </div>
-            <div id="timeline-selector">
-                <div id="event-week">Semana 12</div>
+            <div id="timeline-selector" class="row flex-column justify-content-start align-items-center">
+                <div id="selector-header" class="col-4 col-md-2">
+                    Semana 12
+                </div>
                 <div id="selector-handler"></div>
             </div>
         </section>
