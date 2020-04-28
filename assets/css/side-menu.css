@@ -37,6 +37,7 @@
     top: 2rem;
     bottom: 1rem;
     overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 #side-menu-content h1 {
