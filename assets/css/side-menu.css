@@ -64,7 +64,6 @@
 
 #references ul li,
 #references ul li a {
-    list-style-type: none;
     margin: .75rem auto;
     font-weight: 500;
     font-size: 2rem;

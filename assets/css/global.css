@@ -53,6 +53,10 @@ main {
     transition: all 0.5s;
 }
 
+ul {
+    list-style-type: none;
+}
+
 a:hover {
     text-decoration: underline;
 }
