@@ -23,6 +23,10 @@
     <!-- Font Awesome (Icons) -->
     <script src="https://kit.fontawesome.com/09c08a949e.js" crossorigin="anonymous"></script>
 
+    <!-- OpenLayers (interactive map) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css">
+
+
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/side-menu.css">
@@ -63,9 +67,7 @@
         <i class="fas fa-bars" id="menu-button" onclick="openMenu()"></i>
 
         <!-- MAP -->
-        <section id="map">
-            <img src="assets/img/Condor.png" alt="Mapa do continente Condor">
-        </section>
+        <div id="map"></div>
 
         <!-- TIMELINE -->
         <section id="timeline">
@@ -88,8 +90,12 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 
+    <!-- OpenLayers script -->
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+
     <!-- SCRIPTS -->
     <script src="assets/js/index.js"></script>
+    <script src="assets/js/map.js"></script>
 </body>
 
 </html>
