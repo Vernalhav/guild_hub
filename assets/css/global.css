@@ -97,6 +97,7 @@ a:hover {
 
     background-color: #eee;
     overflow: scroll;
+    scrollbar-width: none;
 }
 
 @media (max-width: 767px) {
