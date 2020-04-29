@@ -41,12 +41,12 @@ function setupMap(){
 			view: new ol.View({
 				projection: projection,
 				center: ol.extent.getCenter(extent),
+				maxZoom: 4,
 				zoom: 3,
-    			maxZoom: 3,
-    			minZoom: 3
+    			smoothExtentConstraint: false,
+    			extent: extent
 			})
 		});
-		console.log(map);
 	}
 }
 
