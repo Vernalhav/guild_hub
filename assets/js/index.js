@@ -40,9 +40,13 @@ function setupMap(){
 			target: 'map',
 			view: new ol.View({
 				projection: projection,
-				center: ol.extent.getCenter(extent)
+				center: ol.extent.getCenter(extent),
+				zoom: 3,
+    			maxZoom: 3,
+    			minZoom: 3
 			})
 		});
+		console.log(map);
 	}
 }
 
