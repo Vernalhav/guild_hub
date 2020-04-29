@@ -76,6 +76,8 @@ a:hover {
     background-color: var(--light-color-t);
     border-radius: 2rem;
     color: var(--primary-color);
+
+    z-index: 2;
 }
 
 #menu-button:hover {

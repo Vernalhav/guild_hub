@@ -28,6 +28,8 @@ function setupMap(){
 		});
 
 		let map = new ol.Map({
+			target: 'map',
+			controls: [],
 			layers: [
 				new ol.layer.Image({
 					source: new ol.source.ImageStatic({
@@ -37,7 +39,6 @@ function setupMap(){
 					})
 				})
 			],
-			target: 'map',
 			view: new ol.View({
 				projection: projection,
 				center: ol.extent.getCenter(extent),
