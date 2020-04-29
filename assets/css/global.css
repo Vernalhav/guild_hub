@@ -5,7 +5,7 @@
     --primary-color: #BA341B;
     --primary-color-1: #CC6856;
     --secondary-color1: #574B24;
-    --secondary-color: #E8D610;
+    --secondary-color: #7D6D39;
     --secondary-color-1: #968B69;
     --complementary-color1: #002113;
     --complementary-color: #004729;
@@ -51,6 +51,10 @@ main {
     transition: all 0.5s;
 }
 
+ul {
+    list-style-type: none;
+}
+
 a:hover {
     text-decoration: underline;
 }
@@ -86,15 +90,13 @@ a:hover {
 }
 
 #map {
-    background-color: #eee;
+    position: absolute;
     width: 100%;
-    height: 80%;
-    overflow: scroll;
-    scrollbar-width: none;
-}
+    top: 0;
+    bottom: 160px;
 
-#map img {
-    object-fit: cover;
+    background-color: #eee;
+    overflow: scroll;
 }
 
 @media (max-width: 767px) {
