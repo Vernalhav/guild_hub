@@ -15,8 +15,9 @@ function openMenu(e) {
 
 function setupMap(){
 
+	image_url = 'img/Condor.png';
 	var map_image = new Image();
-	map_image.src = 'assets/img/Condor.png';
+	map_image.src = image_url;
 
 	map_image.onload = function (){
 
@@ -37,7 +38,7 @@ function setupMap(){
 			layers: [
 				new ol.layer.Image({
 					source: new ol.source.ImageStatic({
-						url: 'assets/img/Condor.png',
+						url: image_url,
 						projection: projection,
 						imageExtent: extent
 					})
