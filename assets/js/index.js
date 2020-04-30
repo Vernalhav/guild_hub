@@ -1,11 +1,15 @@
 function closeMenu(e) {
     $("#side-menu").css("left", "-100%");
     $("main").css("filter", "brightness(100%)");
+
+    $("main").on("click", null);
 }
 
 function openMenu(e) {
     $("#side-menu").css("left", "0");
     $("main").css("filter", "brightness(30%)");
+
+    $("main").on("click", closeMenu);
 }
 
 
@@ -28,6 +32,8 @@ function setupMap(){
 		});
 
 		let map = new ol.Map({
+			target: 'map',
+			controls: [],
 			layers: [
 				new ol.layer.Image({
 					source: new ol.source.ImageStatic({
@@ -37,10 +43,13 @@ function setupMap(){
 					})
 				})
 			],
-			target: 'map',
 			view: new ol.View({
 				projection: projection,
-				center: ol.extent.getCenter(extent)
+				center: ol.extent.getCenter(extent),
+				maxZoom: 4,
+				zoom: 3,
+    			smoothExtentConstraint: false,
+    			extent: extent
 			})
 		});
 	}
