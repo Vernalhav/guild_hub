@@ -1,18 +1,23 @@
 function closeMenu(e) {
     $("#side-menu").css("left", "-100%");
     $("main").css("filter", "brightness(100%)");
+
+    $("main").on("click", null);
 }
 
 function openMenu(e) {
     $("#side-menu").css("left", "0");
     $("main").css("filter", "brightness(30%)");
+
+    $("main").on("click", closeMenu);
 }
 
 
 function setupMap(){
 
+	image_url = 'img/Condor.png';
 	var map_image = new Image();
-	map_image.src = 'assets/img/Condor.png';
+	map_image.src = image_url;
 
 	map_image.onload = function (){
 
@@ -33,7 +38,7 @@ function setupMap(){
 			layers: [
 				new ol.layer.Image({
 					source: new ol.source.ImageStatic({
-						url: 'assets/img/Condor.png',
+						url: image_url,
 						projection: projection,
 						imageExtent: extent
 					})
