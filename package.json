@@ -1,0 +1,22 @@
+{
+  "name": "guild_hub",
+  "version": "1.0.0",
+  "description": "Interactive wiki for our RPG world",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vernalhav/guild_hub.git"
+  },
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Vernalhav/guild_hub/issues"
+  },
+  "homepage": "https://github.com/Vernalhav/guild_hub#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
