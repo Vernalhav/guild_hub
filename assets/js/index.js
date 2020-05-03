@@ -1,29 +1,32 @@
-function closeMenu(e) {
-    $("#side-menu").css("left", "-100%");
-    $("main").css("filter", "brightness(100%)");
+// --- Side Menu Functions
 
-    $("main").on("click", null);
+function closeMenu(e) {
+	$("#side-menu").css("left", "-100%");
+	$("main").css("filter", "brightness(100%)");
+
+	$("main").on("click", null);
 }
 
 function openMenu(e) {
-    $("#side-menu").css("left", "0");
-    $("main").css("filter", "brightness(30%)");
+	$("#side-menu").css("left", "0");
+	$("main").css("filter", "brightness(30%)");
 
-    $("main").on("click", closeMenu);
+	$("main").on("click", closeMenu);
 }
 
+// --- Map Functions
 
-function setupMap(){
+function setupMap() {
 
 	image_url = 'img/Condor.png';
 	var map_image = new Image();
 	map_image.src = image_url;
 
-	map_image.onload = function (){
+	map_image.onload = function () {
 
 		let width = map_image.width;
 		let height = map_image.height;
-		
+
 		let extent = [0, 0, width, height];
 
 		let projection = new ol.proj.Projection({
@@ -49,11 +52,39 @@ function setupMap(){
 				center: ol.extent.getCenter(extent),
 				maxZoom: 4,
 				zoom: 3,
-    			smoothExtentConstraint: false,
-    			extent: extent
+				smoothExtentConstraint: false,
+				extent: extent
 			})
 		});
 	}
 }
+
+// --- Click and Drag Timeline
+
+let $timelines = $('#timelines');
+let isDown = false,
+	startX, scrollLeft;
+
+$timelines.on({
+	"mousedown": (e) => {
+		isDown = true;
+		startX = e.pageX - $timelines.offset().left;
+		scrollLeft = $timelines.scrollLeft();
+		console.log('ae')
+	},
+	"mouseleave mouseup": () => {
+		isDown = false;
+		console.log('opa')
+	},
+	"mousemove": (e) => {
+		if (!isDown) return;
+		e.preventDefault();
+		const x = e.pageX - $timelines.offset().left;
+		const walk = (x - startX) * 1.5; //scroll-fast
+		$timelines.scrollLeft(scrollLeft - walk);
+	}
+})
+
+// --- Main Code
 
 setupMap();
