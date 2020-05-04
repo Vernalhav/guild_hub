@@ -59,15 +59,17 @@
                         </ul>
                     </nav>
                     <p class="text-right">
-                        <a id="login-button-side-menu" href="javascript:;"  onclick="openLoginForm()">Login ></a> 
+                        <a id="login-button-side-menu" href="javascript:;" data-toggle="modal" data-target="#login-screen">Login</a> 
                     </p>
                 </div>
             </div>
         </section>
     </div>
-    <div class="row justify-content-center">
-        <div class="login-form col-8 col-lg-6">
-            <i id="login-form-return-arrow" class="fas fa-arrow-left"></i>
+
+
+    <div id="login-screen" class="row modal fade" tabindex="-1">
+        <div class="login-form col-8 col-lg-6 modal-dialog">
+            <i id="login-form-return-arrow" class="fas fa-arrow-left" data-dismiss="modal"></i>
             <form action="" id ="form-login" class="d-flex flex-column justify-content-around">
                 <div class="form-items">
                     <label for="">Nome de Usuário:</label>
@@ -77,7 +79,6 @@
                     <label for="">Senha:</label>
                     <input type="password">
                 </div>
-
                 <button class="form-items align-self-end">Login</button>
             </form>
         </div>
