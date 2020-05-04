@@ -62,3 +62,11 @@ button.form-items {
 #content-form {
     height: 400px;
 }
+
+.tab-pane {
+    overflow-y: scroll;
+    scrollbar-width: none;
+    height: 340px;
+    padding-bottom: 2rem;
+    padding-top: .5rem;
+}
