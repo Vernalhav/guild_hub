@@ -1,11 +1,12 @@
 .login-form{
     background-color: var(--light-color1);
     z-index: 6;
-    height: 300px;
+    bottom: 240px;
+    position: absolute;
+    top: 50px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 24px;
 }
-
 #form-login{
     height: 100%;
     padding: 1rem 7rem;
@@ -53,8 +54,4 @@ button.form-items{
     background-color: var(--complementary-color);
     color: var(--light-color);
     font-weight: 500;
-}
-
-#login-screen {
-    width: 100%;
 }
