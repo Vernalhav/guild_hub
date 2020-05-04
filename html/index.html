@@ -59,6 +59,7 @@
                             <li><i class="fas fa-arrow-right"></i> <a href="#">Itens</a></li>
                         </ul>
                     </nav>
+                    <button class="btn btn-md btn-dark" onclick="openContentForm()">Adicionar Conteúdo</button>
                     <p class="text-right">
                         <a id="login-button-side-menu" href="javascript:;" onclick="openLoginForm()">Login</a>
                     </p>
@@ -70,7 +71,7 @@
     <!-- LOGIN SCREEN -->
     <div class="row justify-content-center">
         <section id="login-form" class="col-6 col-lg-4">
-            <i id="login-form-return-arrow" class="fas fa-arrow-left" onclick="closeLoginForm()"></i>
+            <i id="form-return-arrow" class="fas fa-arrow-left" onclick="closeLoginForm()"></i>
             <form action="" id="form-login" class="d-flex flex-column justify-content-around">
                 <div class="form-items">
                     <label for="">Nome de Usuário</label>
@@ -83,6 +84,30 @@
 
                 <button class="form-items align-self-end">Login</button>
             </form>
+        </section>
+    </div>
+
+    <!-- CONTENT FORMS -->
+
+    <div class="row justify-content-center">
+        <section id="content-form" class="col-8 col-lg-6">
+            <i id="form-return-arrow" class="fas fa-arrow-left" onclick="closeContentForm()"></i>
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-event-tab" data-toggle="tab" href="#nav-event"
+                        role="tab" aria-controls="nav-event" aria-selected="true">Evento</a>
+                    <a class="nav-item nav-link" id="nav-others-tab" data-toggle="tab" href="#nav-others" role="tab"
+                        aria-controls="nav-others" aria-selected="false">Outros</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-event" role="tabpanel" aria-labelledby="nav-event-tab">
+                    <h1 class="display-1">EVENT FORMS</h1>
+                </div>
+                <div class="tab-pane fade" id="nav-others" role="tabpanel" aria-labelledby="nav-others-tab">
+                    <h1 class="display-1">OTHERS FORMS</h1>
+                </div>
+            </div>
         </section>
     </div>
 

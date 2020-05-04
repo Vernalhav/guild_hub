@@ -6,6 +6,7 @@ let $eventDisplay = $('#event-display');
 let $map = $('#map');
 let $timelines = $('#timelines');
 let $loginForm = $("#login-form");
+let $contentForm = $("#content-form");
 
 let map;
 let previewOpen = false;
@@ -40,17 +41,25 @@ function closePreview(e) {
 	mapEnable(true);
 }
 
-// --- Map Functions
+// --- Forms Functions
 
 function openLoginForm(e) {
 	$loginForm.fadeIn('fast');
 }
 
-
 function closeLoginForm(e) {
 	$loginForm.fadeOut('fast');
 }
 
+function openContentForm(e) {
+	$contentForm.fadeIn('fast');
+}
+
+function closeContentForm(e) {
+	$contentForm.fadeOut('fast');
+}
+
+// --- Map Functions
 
 function setupMap() {
 
@@ -129,6 +138,7 @@ $timelines.on({
 function main() {
 	setupMap();
 	$loginForm.hide();
+	$contentForm.hide();
 }
 
 
