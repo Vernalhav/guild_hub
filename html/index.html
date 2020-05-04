@@ -33,6 +33,7 @@
     <link rel="stylesheet" type="text/css" href="css/side-menu.css">
     <link rel="stylesheet" type="text/css" href="css/timeline.css">
     <link rel="stylesheet" type="text/css" href="css/forms.css">
+    <link rel="stylesheet" type="text/css" href="css/event.css">
 
     <title>Guild Hub</title>
 </head>
@@ -59,7 +60,7 @@
                         </ul>
                     </nav>
                     <p class="text-right">
-                        <a id="login-button-side-menu" href="javascript:;"  onclick="openLoginForm()">Login</a> 
+                        <a id="login-button-side-menu" href="javascript:;" onclick="openLoginForm()">Login</a>
                     </p>
                 </div>
             </div>
@@ -70,7 +71,7 @@
     <div class="row justify-content-center">
         <section id="login-form" class="col-6 col-lg-4">
             <i id="login-form-return-arrow" class="fas fa-arrow-left" onclick="closeLoginForm()"></i>
-            <form action="" id ="form-login" class="d-flex flex-column justify-content-around">
+            <form action="" id="form-login" class="d-flex flex-column justify-content-around">
                 <div class="form-items">
                     <label for="">Nome de Usuário</label>
                     <input type="text" name="" id="">
@@ -90,6 +91,21 @@
     <main>
         <!-- MAP -->
         <div id="map"></div>
+
+        <!-- EVENT PREVIEW -->
+        <div class="row justify-content-center">
+            <section id="event-display" class="col-10 col-sm-8 col-lg-5 row justify-content-center"
+                onclick="openPreview()">
+                <div class="content d-flex col-10 flex-column align-items-center">
+                    <img src="img/event-img.jpg" alt="Imagem de uma tocha para representar o evento" class="open">
+                    <p class="event-text text-center open">Evento</p>
+                    <div class="line open"></div>
+                    <h1 class="title text-center">O Sequestro do Anão</h1>
+                    <p class="short-description text-center open">Um elfo atravessando uma fria floresta não esperava
+                        encontrar um anão preso em sua carruagem quebrada</p>
+                </div>
+            </section>
+        </div>
 
         <!-- TIMELINE -->
         <section id="timeline">
@@ -128,7 +144,7 @@
     </main>
 
     <!-- BOOTSTRAP SCRIPTS -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"crossorigin="anonymous">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous">
     </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
@@ -138,7 +154,8 @@
     </script>
 
     <!-- OpenLayers script -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
 
     <!-- SCRIPTS -->
     <script type="text/javascript" src="js/index.js"></script>
