@@ -71,3 +71,8 @@
     align-self: center;
     color: var(--light-color1);
 }
+#login-button-side-menu{
+    color: var(--light-color1);
+    font-weight: 500;
+    font-size: 1.3rem;
+}

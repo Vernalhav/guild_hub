@@ -16,6 +16,16 @@ function openMenu(e) {
 
 // --- Map Functions
 
+function openLoginForm(e) {
+	$("#login-form").fadeIn('fast');
+}
+
+
+function closeLoginForm(e) {
+	$("#login-form").fadeOut('fast');
+}
+
+
 function setupMap() {
 
 	image_url = 'img/Condor.png';
@@ -87,4 +97,10 @@ $timelines.on({
 
 // --- Main Code
 
-setupMap();
+function main() {
+	setupMap();
+	$("#login-form").hide();
+}
+
+
+main();
