@@ -1,25 +1,42 @@
+// --- DOM Variables declaration
+
+let $sideMenu = $('#side-menu');
+let $main = $('main');
+let $eventDisplay = $('#event-display');
+let $map = $('#map');
+let $timelines = $('#timelines');
+
+let map;
+let previewOpen = false;
+
 // --- Side Menu Functions
 
 function closeMenu(e) {
-	$("#side-menu").css("left", "-100%");
-	$("main").css("filter", "brightness(100%)").on("click", null);
+	$sideMenu.css("left", "-100%");
+	$main.css("filter", "brightness(100%)").on("click", null);
+	mapEnable(!previewOpen);
 }
 
 function openMenu(e) {
-	$("#side-menu").css("left", "0");
-	$("main").css("filter", "brightness(30%)").on("click", closeMenu);
+	$sideMenu.css("left", "0");
+	$main.css("filter", "brightness(30%)").on("click", closeMenu);
+	mapEnable(false);
 }
 
 // --- Event Preview Functions
 
 function openPreview(e) {
-	$('#event-display').addClass("open").on('click', null);
-	$('#map').css("filter", "brightness(60%)").on('click', closePreview);
+	$eventDisplay.addClass("open").on('click', null);
+	$map.css("filter", "brightness(60%)").on('click', closePreview);
+	previewOpen = true;
+	mapEnable(false);
 }
 
 function closePreview(e) {
-	$('#event-display').removeClass("open").on('click', openPreview);
-	$('#map').css("filter", "brightness(100%)").on('click', null);
+	$eventDisplay.removeClass("open").on('click', openPreview);
+	$map.css("filter", "brightness(100%)").on('click', null);
+	previewOpen = false;
+	mapEnable(true);
 }
 
 // --- Map Functions
@@ -43,7 +60,7 @@ function setupMap() {
 			extent: extent
 		});
 
-		let map = new ol.Map({
+		map = new ol.Map({
 			target: 'map',
 			controls: [],
 			layers: [
@@ -67,9 +84,14 @@ function setupMap() {
 	}
 }
 
+function mapEnable(bool) {
+	map.getInteractions().forEach(function (interaction) {
+		interaction.setActive(bool);
+	}, this);
+}
+
 // --- Click and Drag Timeline
 
-let $timelines = $('#timelines');
 let isDown = false,
 	startX, scrollLeft;
 
@@ -78,11 +100,9 @@ $timelines.on({
 		isDown = true;
 		startX = e.pageX - $timelines.offset().left;
 		scrollLeft = $timelines.scrollLeft();
-		console.log('ae')
 	},
 	"mouseleave mouseup": () => {
 		isDown = false;
-		console.log('opa')
 	},
 	"mousemove": (e) => {
 		if (!isDown) return;
