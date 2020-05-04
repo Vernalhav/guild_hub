@@ -13,7 +13,17 @@ function openMenu(e) {
 }
 
 
-function setupMap(){
+function openLoginForm(e) {
+	$("#login-form").fadeIn('fast');
+}
+
+
+function closeLoginForm(e) {
+	$("#login-form").fadeOut('fast');
+}
+
+
+function setupMap() {
 
 	image_url = 'img/Condor.png';
 	var map_image = new Image();
@@ -56,4 +66,10 @@ function setupMap(){
 	}
 }
 
-setupMap();
+function main() {
+	setupMap();
+	$("#login-form").hide();	
+}
+
+
+main();

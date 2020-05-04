@@ -59,28 +59,30 @@
                         </ul>
                     </nav>
                     <p class="text-right">
-                        <a id="login-button-side-menu" href="javascript:;"  onclick="openLoginForm()">Login ></a> 
+                        <a id="login-button-side-menu" href="javascript:;"  onclick="openLoginForm()">Login</a> 
                     </p>
                 </div>
             </div>
         </section>
     </div>
+
+    <!-- LOGIN SCREEN -->
     <div class="row justify-content-center">
-        <div class="login-form col-8 col-lg-6">
-            <i id="login-form-return-arrow" class="fas fa-arrow-left"></i>
+        <section id="login-form" class="col-6 col-lg-4">
+            <i id="login-form-return-arrow" class="fas fa-arrow-left" onclick="closeLoginForm()"></i>
             <form action="" id ="form-login" class="d-flex flex-column justify-content-around">
                 <div class="form-items">
-                    <label for="">Nome de Usuário:</label>
+                    <label for="">Nome de Usuário</label>
                     <input type="text" name="" id="">
                 </div>
                 <div class="form-items">
-                    <label for="">Senha:</label>
+                    <label for="">Senha</label>
                     <input type="password">
                 </div>
 
                 <button class="form-items align-self-end">Login</button>
             </form>
-        </div>
+        </section>
     </div>
 
     <!-- MAIN CONTENT -->
@@ -126,8 +128,7 @@
     </main>
 
     <!-- BOOTSTRAP SCRIPTS -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"crossorigin="anonymous">
     </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
