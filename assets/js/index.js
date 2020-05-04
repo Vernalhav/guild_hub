@@ -2,16 +2,24 @@
 
 function closeMenu(e) {
 	$("#side-menu").css("left", "-100%");
-	$("main").css("filter", "brightness(100%)");
-
-	$("main").on("click", null);
+	$("main").css("filter", "brightness(100%)").on("click", null);
 }
 
 function openMenu(e) {
 	$("#side-menu").css("left", "0");
-	$("main").css("filter", "brightness(30%)");
+	$("main").css("filter", "brightness(30%)").on("click", closeMenu);
+}
 
-	$("main").on("click", closeMenu);
+// --- Event Preview Functions
+
+function openPreview(e) {
+	$('#event-display').addClass("open").on('click', null);
+	$('#map').css("filter", "brightness(60%)").on('click', closePreview);
+}
+
+function closePreview(e) {
+	$('#event-display').removeClass("open").on('click', openPreview);
+	$('#map').css("filter", "brightness(100%)").on('click', null);
 }
 
 // --- Map Functions

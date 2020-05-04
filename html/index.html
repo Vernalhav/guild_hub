@@ -32,6 +32,7 @@
     <link rel="stylesheet" type="text/css" href="css/global.css">
     <link rel="stylesheet" type="text/css" href="css/side-menu.css">
     <link rel="stylesheet" type="text/css" href="css/timeline.css">
+    <link rel="stylesheet" type="text/css" href="css/event.css">
 
     <title>Guild Hub</title>
 </head>
@@ -67,6 +68,21 @@
     <main>
         <!-- MAP -->
         <div id="map"></div>
+
+        <!-- EVENT PREVIEW -->
+        <div class="row justify-content-center">
+            <section id="event-display" class="col-10 col-sm-8 col-lg-5 row justify-content-center"
+                onclick="openPreview()">
+                <div class="content d-flex col-10 flex-column align-items-center">
+                    <img src="img/event-img.jpg" alt="Imagem de uma tocha para representar o evento" class="open">
+                    <p class="event-text text-center open">Evento</p>
+                    <div class="line open"></div>
+                    <h1 class="title text-center">O Sequestro do Anão</h1>
+                    <p class="short-description text-center open">Um elfo atravessando uma fria floresta não esperava
+                        encontrar um anão preso em sua carruagem quebrada</p>
+                </div>
+            </section>
+        </div>
 
         <!-- TIMELINE -->
         <section id="timeline">
@@ -116,7 +132,8 @@
     </script>
 
     <!-- OpenLayers script -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
 
     <!-- SCRIPTS -->
     <script type="text/javascript" src="js/index.js"></script>
