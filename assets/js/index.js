@@ -1,24 +1,31 @@
 // --- DOM Variables declaration
 
 let $sideMenu = $('#side-menu');
+let $contentDetails = $("#content-details");
 let $main = $('main');
 let $eventDisplay = $('#event-display');
 let $map = $('#map');
 let $timelines = $('#timelines');
 let $loginForm = $("#login-form");
 let $contentForm = $("#content-form");
+let $showContent = $("#show-content");
 
 let map;
 
 // Assign buttons onclick methods
 
-$("#menu-button").click(openMenu);
-$("#return-arrow").click(closeMenu);
-$eventDisplay.click(openPreview);
-$("#add-content-button").click(openContentForm);
-$("#login-button").click(openLoginForm);
-$("#login-form-return-arrow").click(closeLoginForm);
-$("#content-form-return-arrow").click(closeContentForm);
+function setupListeners() {
+	$("#menu-button").click(openMenu);
+	$("#return-arrow").click(closeMenu);
+	$("#details-return-arrow").click(closeDetails);
+	$eventDisplay.click(openPreview);
+	$("#add-content-button").click(openContentForm);
+	$("#login-button").click(openLoginForm);
+	$("#character-button").click(openShowContent);
+	$("#login-form-return-arrow").click(closeLoginForm);
+	$("#content-form-return-arrow").click(closeContentForm);
+	$("#show-content-return-arrow").click(closeShowContent);
+}
 
 
 // --- Side Menu Functions
@@ -39,11 +46,29 @@ function openMenu(e) {
 	mapEnable(false);
 }
 
+function closeDetails(e) {
+	e.preventDefault();
+	$contentDetails.css("left", "-100%");
+	$main.css("filter", "brightness(100%)").prop("onclick", null).off("click");
+	mapEnable(true);
+}
+
+function openDetails(e) {
+	e.preventDefault();
+	closePreview(e);
+	closeMenu(e);
+	$contentDetails.css("left", "0");
+	setTimeout(() => {
+		$main.css("filter", "brightness(30%)").on("click", closeDetails)
+	}, 0);
+	mapEnable(false);
+}
+
 // --- Event Preview Functions
 
 function openPreview(e) {
 	e.preventDefault();
-	$eventDisplay.addClass("open").prop("onclick", null).off("click");
+	$eventDisplay.addClass("open").on('click', openDetails);
 	$map.css("filter", "brightness(60%)").on('click', closePreview);
 	previewOpen = true;
 	mapEnable(false);
@@ -51,8 +76,7 @@ function openPreview(e) {
 
 function closePreview(e) {
 	e.preventDefault();
-	console.log('a');
-	$eventDisplay.removeClass("open").on('click', openPreview);
+	$eventDisplay.removeClass("open").prop("onclick", null).off("click").on('click', openPreview);
 	$map.css("filter", "brightness(100%)").prop("onclick", null).off("click");
 	previewOpen = false;
 	mapEnable(true);
@@ -78,6 +102,16 @@ function openContentForm(e) {
 function closeContentForm(e) {
 	e.preventDefault();
 	$contentForm.fadeOut('fast');
+}
+
+function openShowContent(e) {
+	e.preventDefault();
+	$showContent.fadeIn('fast');
+}
+
+function closeShowContent(e) {
+	e.preventDefault();
+	$showContent.fadeOut('fast');
 }
 
 // --- Map Functions
@@ -158,8 +192,10 @@ $timelines.on({
 
 function main() {
 	setupMap();
+	setupListeners();
 	$loginForm.hide();
 	$contentForm.hide();
+	$showContent.hide();
 }
 
 

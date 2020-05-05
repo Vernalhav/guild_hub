@@ -10,7 +10,8 @@
 }
 
 #login-form-return-arrow,
-#content-form-return-arrow {
+#content-form-return-arrow,
+#show-content-return-arrow {
     position: absolute;
     top: .8rem;
     right: .8rem;
@@ -25,4 +26,23 @@
     scrollbar-width: none;
     padding-bottom: 2rem;
     padding-top: .5rem;
+}
+
+.card,
+.card-img-top {
+    border-radius: 1rem;
+    background-color: var(--light-color);
+}
+
+.card-body {
+    padding: .5rem;
+}
+
+.card-title {
+    font-weight: 700;
+}
+
+.card:hover .card-title {
+    text-decoration: underline;
+    cursor: pointer;
 }

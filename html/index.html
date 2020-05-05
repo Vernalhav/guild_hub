@@ -32,6 +32,7 @@
     <link rel="stylesheet" type="text/css" href="css/global.css">
     <link rel="stylesheet" type="text/css" href="css/landing.css">
     <link rel="stylesheet" type="text/css" href="css/side-menu.css">
+    <link rel="stylesheet" type="text/css" href="css/details.css">
     <link rel="stylesheet" type="text/css" href="css/timeline.css">
     <link rel="stylesheet" type="text/css" href="css/forms.css">
     <link rel="stylesheet" type="text/css" href="css/event.css">
@@ -54,16 +55,84 @@
                     <h2 class="text-center">Uma wiki interativa para seu mundo de RPG</h2>
                     <nav id="references">
                         <ul>
-                            <li><i class="fas fa-arrow-right"></i> <a href="#">Pessoas</a></li>
-                            <li><i class="fas fa-arrow-right"></i> <a href="#">Divindades</a></li>
-                            <li><i class="fas fa-arrow-right"></i> <a href="#">Locais</a></li>
-                            <li><i class="fas fa-arrow-right"></i> <a href="#">Itens</a></li>
+                            <li><i class="fas fa-arrow-right"></i> <a href="javascript:;"
+                                    id="character-button">Pessoas</a></li>
+                            <li><i class="fas fa-arrow-right"></i> <a href="javascript:;"
+                                    id="divinity-button">Divindades</a></li>
+                            <li><i class="fas fa-arrow-right"></i> <a href="javascript:;"
+                                    id="location-button">Locais</a></li>
+                            <li><i class="fas fa-arrow-right"></i> <a href="javascript:;" id="items-button">Itens</a>
+                            </li>
                         </ul>
                     </nav>
                     <button id="add-content-button" class="btn btn-md btn-complementary">Adicionar Conteúdo</button>
                     <p class="text-right">
                         <a id="login-button" href="javascript:;">Login</a>
                     </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SIDE MENU CONTENT DETAILS -->
+    <div class="row">
+        <section id="content-details" class="p-0 col-11 col-sm-9 col-md-7 col-lg-4">
+            <i class="fas fa-arrow-left icon-primary bg-light" id="details-return-arrow"></i>
+            <div id="details-content">
+                <img src="img/event-img.jpg" alt="Imagem de uma tocha para representar o evento">
+                <p class="event-text text-center">Evento</p>
+                <div class="line text-center"></div>
+                <h1 class="title text-center">O Sequestro do Anão</h1>
+                <p class="description p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eos
+                    quam aut non molestias dignissimos possimus. Quos dolorem enim quasi incidunt ipsa ad a sit placeat.
+                    Exercitationem velit et eius dolor consectetur molestiae modi ipsam placeat, iste cupiditate,
+                    possimus accusamus, rem ea cum reiciendis? Illum, id ipsa? Dignissimos accusamus, ducimus iusto non
+                    fuga officia similique itaque? Maxime, similique dolores molestias quod in quos id, fugiat voluptate
+                    recusandae saepe iure ipsa, minima asperiores reprehenderit illo magni neque atque. Libero fugiat
+                    quos tempora eum atque explicabo, alias dolor et necessitatibus similique, doloremque neque maxime
+                    soluta nostrum iure est assumenda temporibus ut aut laboriosam. Debitis, numquam voluptate
+                    repellendus tenetur explicabo vitae ducimus autem cum! Tenetur expedita ab officia a blanditiis ex
+                    consequatur excepturi molestiae? Harum commodi delectus optio hic magnam, quos animi. Tempora,
+                    consequatur nostrum architecto ab nemo asperiores ratione nisi odio eum ad? Earum possimus eveniet
+                    doloribus magnam ab repellat at. Asperiores atque ut cupiditate, dolorem consequuntur tempore odit
+                    fugit itaque beatae optio porro mollitia et nemo eius nobis, incidunt velit recusandae quas
+                    reiciendis nostrum magnam qui temporibus. Qui fuga fugiat rem maiores inventore at assumenda
+                    voluptatibus enim, eveniet dolore incidunt, nisi nemo labore ratione expedita explicabo, soluta
+                    consequuntur cupiditate facere ipsam!</p>
+                <h2 class="related-title ml-4">Relacionados</h2>
+                <div class="row px-4">
+                    <div class="p-1 col-6 col-xl-4">
+                        <div class="related-card p-0">
+                            <img src="img/guilda-logo.svg" class="related-card-img" alt="Imagem do Personagem">
+                            <div class="card-body text-center">
+                                <a class="card-title">Personagem 1</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-1 col-6 col-xl-4">
+                        <div class="related-card p-0">
+                            <img src="img/guilda-logo.svg" class="related-card-img" alt="Imagem do Personagem">
+                            <div class="card-body text-center">
+                                <a class="card-title">Personagem 1</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-1 col-6 col-xl-4">
+                        <div class="related-card p-0">
+                            <img src="img/guilda-logo.svg" class="related-card-img" alt="Imagem do Personagem">
+                            <div class="card-body text-center">
+                                <a class="card-title">Personagem 1</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-1 col-6 col-xl-4">
+                        <div class="related-card p-0">
+                            <img src="img/guilda-logo.svg" class="related-card-img" alt="Imagem do Personagem">
+                            <div class="card-body text-center">
+                                <a class="card-title">Personagem 1</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -87,6 +156,64 @@
                     <button type="submit" class="btn btn-complementary">Login</button>
                 </div>
             </form>
+        </section>
+    </div>
+
+    <!-- SHOW SCREEN -->
+    <div class="row justify-content-center">
+        <section id="show-content" class="form-display col-8 col-lg-6">
+            <i id="show-content-return-arrow" class="fas fa-arrow-left icon-primary"></i>
+            <p class="display-4">Personagens</p>
+            <div class="row tab-pane">
+                <div class="p-2 col-6 col-md-4 col-lg-3">
+                    <div class="card p-0">
+                        <img src="img/guilda-logo.svg" class="card-img-top" alt="Imagem do Personagem">
+                        <div class="card-body text-center">
+                            <a class="card-title">Personagem 1</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 col-6 col-md-4 col-lg-3">
+                    <div class="card p-0">
+                        <img src="img/guilda-logo.svg" class="card-img-top" alt="Imagem do Personagem">
+                        <div class="card-body text-center">
+                            <a class="card-title">Personagem 1</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 col-6 col-md-4 col-lg-3">
+                    <div class="card p-0">
+                        <img src="img/guilda-logo.svg" class="card-img-top" alt="Imagem do Personagem">
+                        <div class="card-body text-center">
+                            <a class="card-title">Personagem 1</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 col-6 col-md-4 col-lg-3">
+                    <div class="card p-0">
+                        <img src="img/guilda-logo.svg" class="card-img-top" alt="Imagem do Personagem">
+                        <div class="card-body text-center">
+                            <a class="card-title">Personagem 1</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 col-6 col-md-4 col-lg-3">
+                    <div class="card p-0">
+                        <img src="img/guilda-logo.svg" class="card-img-top" alt="Imagem do Personagem">
+                        <div class="card-body text-center">
+                            <a class="card-title">Personagem 1</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 col-6 col-md-4 col-lg-3">
+                    <div class="card p-0">
+                        <img src="img/guilda-logo.svg" class="card-img-top" alt="Imagem do Personagem">
+                        <div class="card-body text-center">
+                            <a class="card-title">Personagem 1</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 

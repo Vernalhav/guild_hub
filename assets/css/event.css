@@ -5,6 +5,8 @@
     padding: 1rem;
     background: var(--light-color1);
     border-radius: 32px;
+
+    cursor: pointer;
 }
 
 #event-display .content {
