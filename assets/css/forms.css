@@ -9,7 +9,8 @@
     padding: 2rem;
 }
 
-#form-return-arrow {
+#login-form-return-arrow,
+#content-form-return-arrow {
     position: absolute;
     top: .8rem;
     right: .8rem;

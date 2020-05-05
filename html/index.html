@@ -41,12 +41,12 @@
 
 <body>
     <!-- MENU ICON -->
-    <i class="fas fa-bars icon-primary bg-light" id="menu-button" onclick="openMenu()"></i>
+    <i class="fas fa-bars icon-primary bg-light" id="menu-button"></i>
 
     <!-- SIDE MENU -->
     <div class="row">
         <section id="side-menu" class="col-10 col-sm-8 col-md-6 col-lg-3">
-            <i class="fas fa-arrow-left icon-primary dark" id="return-arrow" onclick="closeMenu()"></i>
+            <i class="fas fa-arrow-left icon-primary dark" id="return-arrow"></i>
             <div class="row justify-content-center">
                 <div id="side-menu-content" class="col-10">
                     <img id="guild-logo" src="img/guilda-logo.svg" alt="Logo da Guilda das Lendas" />
@@ -60,9 +60,9 @@
                             <li><i class="fas fa-arrow-right"></i> <a href="#">Itens</a></li>
                         </ul>
                     </nav>
-                    <button class="btn btn-md btn-complementary" onclick="openContentForm()">Adicionar Conteúdo</button>
+                    <button id="add-content-button" class="btn btn-md btn-complementary">Adicionar Conteúdo</button>
                     <p class="text-right">
-                        <a id="login-button-side-menu" href="javascript:;" onclick="openLoginForm()">Login</a>
+                        <a id="login-button" href="javascript:;">Login</a>
                     </p>
                 </div>
             </div>
@@ -72,7 +72,7 @@
     <!-- LOGIN SCREEN -->
     <div class="row justify-content-center">
         <section id="login-form" class="form-display col-6 col-lg-4">
-            <i id="form-return-arrow" class="fas fa-arrow-left icon-primary" onclick="closeLoginForm()"></i>
+            <i id="login-form-return-arrow" class="fas fa-arrow-left icon-primary"></i>
             <p class="display-4">Login</p>
             <form id="form-login">
                 <div class="form-group">
@@ -94,7 +94,7 @@
 
     <div class="row justify-content-center">
         <section id="content-form" class="form-display col-8 col-lg-6">
-            <i id="form-return-arrow" class="fas fa-arrow-left icon-primary" onclick="closeContentForm()"></i>
+            <i id="content-form-return-arrow" class="fas fa-arrow-left icon-primary"></i>
             <p class="display-4">Conteúdo</p>
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -194,8 +194,7 @@
 
         <!-- EVENT PREVIEW -->
         <div class="row justify-content-center">
-            <section id="event-display" class="col-10 col-sm-8 col-lg-5 row justify-content-center"
-                onclick="openPreview()">
+            <section id="event-display" class="col-10 col-sm-8 col-lg-5 row justify-content-center">
                 <div class="content d-flex col-10 flex-column align-items-center">
                     <img src="img/event-img.jpg" alt="Imagem de uma tocha para representar o evento" class="open">
                     <p class="event-text text-center open">Evento</p>

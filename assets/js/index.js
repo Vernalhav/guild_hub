@@ -9,17 +9,31 @@ let $loginForm = $("#login-form");
 let $contentForm = $("#content-form");
 
 let map;
-let previewOpen = false;
+
+// Assign buttons onclick methods
+
+$("#menu-button").click(openMenu);
+$("#return-arrow").click(closeMenu);
+$eventDisplay.click(openPreview);
+$("#add-content-button").click(openContentForm);
+$("#login-button").click(openLoginForm);
+$("#login-form-return-arrow").click(closeLoginForm);
+$("#content-form-return-arrow").click(closeContentForm);
+
 
 // --- Side Menu Functions
 
+let previewOpen = false;
+
 function closeMenu(e) {
+	e.preventDefault();
 	$sideMenu.css("left", "-100%");
-	$main.css("filter", "brightness(100%)").on("click", null);
+	$main.css("filter", "brightness(100%)").prop("onclick", null).off("click");
 	mapEnable(!previewOpen);
 }
 
 function openMenu(e) {
+	e.preventDefault();
 	$sideMenu.css("left", "0");
 	$main.css("filter", "brightness(30%)").on("click", closeMenu);
 	mapEnable(false);
@@ -28,15 +42,18 @@ function openMenu(e) {
 // --- Event Preview Functions
 
 function openPreview(e) {
-	$eventDisplay.addClass("open").on('click', null);
+	e.preventDefault();
+	$eventDisplay.addClass("open").prop("onclick", null).off("click");
 	$map.css("filter", "brightness(60%)").on('click', closePreview);
 	previewOpen = true;
 	mapEnable(false);
 }
 
 function closePreview(e) {
+	e.preventDefault();
+	console.log('a');
 	$eventDisplay.removeClass("open").on('click', openPreview);
-	$map.css("filter", "brightness(100%)").on('click', null);
+	$map.css("filter", "brightness(100%)").prop("onclick", null).off("click");
 	previewOpen = false;
 	mapEnable(true);
 }
@@ -44,18 +61,22 @@ function closePreview(e) {
 // --- Forms Functions
 
 function openLoginForm(e) {
+	e.preventDefault();
 	$loginForm.fadeIn('fast');
 }
 
 function closeLoginForm(e) {
+	e.preventDefault();
 	$loginForm.fadeOut('fast');
 }
 
 function openContentForm(e) {
+	e.preventDefault();
 	$contentForm.fadeIn('fast');
 }
 
 function closeContentForm(e) {
+	e.preventDefault();
 	$contentForm.fadeOut('fast');
 }
 
