@@ -1,72 +1,27 @@
-#login-form,
-#content-form {
-    height: 300px;
+.form-display {
+    max-height: 500px;
     background-color: var(--light-color1);
     z-index: 6;
     position: absolute;
     top: 50px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 24px;
-    padding: 1rem 2rem;
-}
-
-#form-login {
-    height: 100%;
-}
-
-.form-items label,
-.form-items input {
-    display: block;
-    width: 100%;
+    padding: 2rem;
 }
 
 #form-return-arrow {
     position: absolute;
-    top: 16px;
-    right: 16px;
+    top: .8rem;
+    right: .8rem;
     width: 3rem;
     height: 3rem;
     font-size: 1.5rem;
-    color: var(--primary-color);
-}
-
-#login-form-return-arrow:hover {
-    color: var(--primary-color1);
-}
-
-.form-items label {
-    font-weight: 800;
-    font-size: 1rem;
-    color: var(--primary-color1);
-}
-
-.form-items input {
-    background-color: var(--light-color);
-    border: 1px solid var(--primary-color1);
-    border-radius: 8px;
-    height: 2rem;
-    padding: 0.5rem;
-    color: var(--dark-color-1);
-}
-
-button.form-items {
-    width: 10rem;
-    height: 3rem;
-    border: 0.5px solid var(--complementary-color);
-    border-radius: 1.5rem;
-    background-color: var(--complementary-color);
-    color: var(--light-color);
-    font-weight: 500;
-}
-
-#content-form {
-    height: 400px;
 }
 
 .tab-pane {
+    max-height: 300px;
     overflow-y: scroll;
     scrollbar-width: none;
-    height: 340px;
     padding-bottom: 2rem;
     padding-top: .5rem;
 }

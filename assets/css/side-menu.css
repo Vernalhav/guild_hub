@@ -67,11 +67,12 @@
 #references ul li a {
     margin: .75rem auto;
     font-weight: 500;
-    font-size: 2rem;
+    font-size: 1.5rem;
     align-self: center;
     color: var(--light-color1);
 }
-#login-button-side-menu{
+
+#login-button-side-menu {
     color: var(--light-color1);
     font-weight: 500;
     font-size: 1.3rem;

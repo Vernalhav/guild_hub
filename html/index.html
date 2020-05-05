@@ -30,6 +30,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/global.css">
+    <link rel="stylesheet" type="text/css" href="css/landing.css">
     <link rel="stylesheet" type="text/css" href="css/side-menu.css">
     <link rel="stylesheet" type="text/css" href="css/timeline.css">
     <link rel="stylesheet" type="text/css" href="css/forms.css">
@@ -40,12 +41,12 @@
 
 <body>
     <!-- MENU ICON -->
-    <i class="fas fa-bars" id="menu-button" onclick="openMenu()"></i>
+    <i class="fas fa-bars icon-primary bg-light" id="menu-button" onclick="openMenu()"></i>
 
     <!-- SIDE MENU -->
     <div class="row">
         <section id="side-menu" class="col-10 col-sm-8 col-md-6 col-lg-3">
-            <i class="fas fa-arrow-left" id="return-arrow" onclick="closeMenu()"></i>
+            <i class="fas fa-arrow-left icon-primary dark" id="return-arrow" onclick="closeMenu()"></i>
             <div class="row justify-content-center">
                 <div id="side-menu-content" class="col-10">
                     <img id="guild-logo" src="img/guilda-logo.svg" alt="Logo da Guilda das Lendas" />
@@ -59,7 +60,7 @@
                             <li><i class="fas fa-arrow-right"></i> <a href="#">Itens</a></li>
                         </ul>
                     </nav>
-                    <button class="btn btn-md btn-dark" onclick="openContentForm()">Adicionar Conteúdo</button>
+                    <button class="btn btn-md btn-complementary" onclick="openContentForm()">Adicionar Conteúdo</button>
                     <p class="text-right">
                         <a id="login-button-side-menu" href="javascript:;" onclick="openLoginForm()">Login</a>
                     </p>
@@ -70,19 +71,21 @@
 
     <!-- LOGIN SCREEN -->
     <div class="row justify-content-center">
-        <section id="login-form" class="col-6 col-lg-4">
-            <i id="form-return-arrow" class="fas fa-arrow-left" onclick="closeLoginForm()"></i>
-            <form action="" id="form-login" class="d-flex flex-column justify-content-around">
-                <div class="form-items">
-                    <label for="">Nome de Usuário</label>
-                    <input type="text" name="" id="">
+        <section id="login-form" class="form-display col-6 col-lg-4">
+            <i id="form-return-arrow" class="fas fa-arrow-left icon-primary" onclick="closeLoginForm()"></i>
+            <p class="display-4">Login</p>
+            <form id="form-login">
+                <div class="form-group">
+                    <label for="login-name">Usuário</label>
+                    <input type="text" class="form-control" id="login-name">
                 </div>
-                <div class="form-items">
-                    <label for="">Senha</label>
-                    <input type="password">
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" class="form-control" id="login-password">
                 </div>
-
-                <button class="form-items align-self-end">Login</button>
+                <div class="d-block text-right">
+                    <button type="submit" class="btn btn-complementary">Login</button>
+                </div>
             </form>
         </section>
     </div>
@@ -90,8 +93,9 @@
     <!-- CONTENT FORMS -->
 
     <div class="row justify-content-center">
-        <section id="content-form" class="col-8 col-lg-6">
-            <i id="form-return-arrow" class="fas fa-arrow-left" onclick="closeContentForm()"></i>
+        <section id="content-form" class="form-display col-8 col-lg-6">
+            <i id="form-return-arrow" class="fas fa-arrow-left icon-primary" onclick="closeContentForm()"></i>
+            <p class="display-4">Conteúdo</p>
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link active" id="nav-event-tab" data-toggle="tab" href="#nav-event"
@@ -110,6 +114,23 @@
                         <label for="event-name">Nome</label>
                         <input type="text" class="form-control" id="event-name" placeholder="Nome da coisa">
                     </div>
+                    <!-- Época -->
+                    <div class="form-row">
+                        <div class="form-group col-6 col-md-3">
+                            <label for="event-year">Ano</label>
+                            <input type="number" class="form-control" id="event-year">
+                        </div>
+                        <div class="form-group col-6 col-md-3 align-self-end">
+                            <select class="custom-select" id="year-select">
+                                <option value="aE">a.E.</option>
+                                <option value="dE" selected>d.E.</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="event-week">Semana</label>
+                            <input type="number" class="form-control" id="event-week">
+                        </div>
+                    </div>
                     <!-- Imagem -->
                     <div class="form-group">
                         <label for="event-image">Imagem</label>
@@ -118,7 +139,7 @@
                     <!-- Resumo -->
                     <div class="form-group">
                         <label for="event-summary">Resumo</label>
-                        <textarea class="form-control" id="event-summary" rows="3"></textarea>
+                        <textarea class="form-control" id="event-summary" rows="1"></textarea>
                     </div>
                     <!-- Descrição -->
                     <div class="form-group">
@@ -127,7 +148,7 @@
                     </div>
                     <!-- Referências -->
                     <!-- Criar -->
-                    <button type="submit" class="btn btn-primary">Criar</button>
+                    <button type="submit" class="btn btn-complementary">Criar</button>
                 </div>
                 <div class="tab-pane fade" id="nav-location" role="tabpanel" aria-labelledby="nav-location-tab">
                     <h1 class="display-1">LOCATION FORMS</h1>
@@ -159,7 +180,7 @@
                     </div>
                     <!-- Referências -->
                     <!-- Criar -->
-                    <button type="submit" class="btn btn-primary">Criar</button>
+                    <button type="submit" class="btn btn-complementary">Criar</button>
                 </div>
             </div>
         </section>
@@ -189,7 +210,7 @@
         <!-- TIMELINE -->
         <section id="timeline">
             <div class="d-flex justify-content-between">
-                <div id="event-year">937 d.E.</div>
+                <div id="timeline-year">937 d.E.</div>
                 <ul id="timelines-headers" class="d-flex flex-column">
                     <li class="timeline-1 flex-fill">Guilda</li>
                     <li class="timeline-2 flex-fill">Personagens</li>
