@@ -38,13 +38,13 @@ function openShowContent(e) {
 		setupMenuInfo(clickedCategory, loreArray);
 	});
 
-	e.preventDefault();
+	e.stopPropagation();
 	$showContent.fadeIn('fast');
 }
 
 
 function closeShowContent(e) {
-	e.preventDefault();
+	e.stopPropagation();
 	$showContent.fadeOut('fast');
 }
 
@@ -54,41 +54,39 @@ function closeShowContent(e) {
 let previewOpen = false;
 
 function closeMenu(e) {
-	e.preventDefault();
+	e.stopPropagation();
 	$sideMenu.css("left", "-100%");
 	$main.css("filter", "brightness(100%)").off("click");
 	mapEnable(!previewOpen);
 }
 
 function openMenu(e) {
-	e.preventDefault();
+	e.stopPropagation();
 	$sideMenu.css("left", "0");
 	$main.css("filter", "brightness(30%)").on("click", closeMenu);
 	mapEnable(false);
 }
 
 function closeDetails(e) {
-	e.preventDefault();
+	e.stopPropagation();
 	$contentDetails.css("left", "-100%");
 	$main.css("filter", "brightness(100%)").off("click");
 	mapEnable(true);
 }
 
 function openDetails(e) {
-	e.preventDefault();
+	e.stopPropagation();
 	closePreview(e);
 	closeMenu(e);
 	$contentDetails.css("left", "0");
-	setTimeout(() => {
-		$main.css("filter", "brightness(30%)").on("click", closeDetails)
-	}, 0);
+	$main.css("filter", "brightness(30%)").on("click", closeDetails)
 	mapEnable(false);
 }
 
 // --- Event Preview Functions
 
 function openPreview(e) {
-	e.preventDefault();
+	e.stopPropagation();
 	$eventDisplay.addClass("open").on('click', openDetails);
 	$map.css("filter", "brightness(60%)").on('click', closePreview);
 	previewOpen = true;
@@ -96,7 +94,7 @@ function openPreview(e) {
 }
 
 function closePreview(e) {
-	e.preventDefault();
+	e.stopPropagation();
 	$eventDisplay.removeClass("open").prop("onclick", null).off("click").on('click', openPreview);
 	$map.css("filter", "brightness(100%)").off("click");
 	previewOpen = false;
@@ -106,21 +104,21 @@ function closePreview(e) {
 // --- Forms Functions
 
 function openLoginForm(e) {
-	e.preventDefault();
+	e.stopPropagation();
 	$loginForm.fadeIn('fast');
 }
 
 function closeLoginForm(e) {
-	e.preventDefault();
+	e.stopPropagation();
 	$loginForm.fadeOut('fast');
 }
 
 function openContentForm(e) {
-	e.preventDefault();
+	e.stopPropagation();
 	$contentForm.fadeIn('fast');
 }
 
 function closeContentForm(e) {
-	e.preventDefault();
+	e.stopPropagation();
 	$contentForm.fadeOut('fast');
 }
