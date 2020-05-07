@@ -1,4 +1,6 @@
 import {mapEnable} from "./map.js";
+import {setupMenuInfo} from "./dynamic_content.js";
+import {selectAll} from "./database.js";
 
 // Assign buttons onclick methods
 
@@ -17,13 +19,31 @@ export function setupListeners() {
 	$("#menu-button").click(openMenu);
 	$("#return-arrow").click(closeMenu);
 	$("#details-return-arrow").click(closeDetails);
-	$eventDisplay.click(openPreview);
 	$("#add-content-button").click(openContentForm);
 	$("#login-button").click(openLoginForm);
-	$("#character-button").click(openShowContent);
 	$("#login-form-return-arrow").click(closeLoginForm);
 	$("#content-form-return-arrow").click(closeContentForm);
 	$("#show-content-return-arrow").click(closeShowContent);
+	
+	$(".side-menu-entry").click(openShowContent);
+
+	$eventDisplay.click(openPreview);
+}
+
+function openShowContent(e) {
+	let clickedCategory = $(e.target).text();
+
+	selectAll(clickedCategory, loreArray => {
+		setupMenuInfo(clickedCategory, loreArray);
+	});
+
+	e.preventDefault();
+	$showContent.fadeIn('fast');
+}
+
+function closeShowContent(e) {
+	e.preventDefault();
+	$showContent.fadeOut('fast');
 }
 
 
@@ -101,14 +121,4 @@ function openContentForm(e) {
 function closeContentForm(e) {
 	e.preventDefault();
 	$contentForm.fadeOut('fast');
-}
-
-function openShowContent(e) {
-	e.preventDefault();
-	$showContent.fadeIn('fast');
-}
-
-function closeShowContent(e) {
-	e.preventDefault();
-	$showContent.fadeOut('fast');
 }

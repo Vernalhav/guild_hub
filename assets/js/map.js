@@ -1,17 +1,18 @@
+import {mapPath} from './config.js';
+
 // --- Map Functions
 
 let map;
 
 export function setupMap() {
 
-	let image_url = 'img/Condor.png';
-	let map_image = new Image();
-	map_image.src = image_url;
+	let mapImage = new Image();
+	mapImage.src = mapPath;
 
-	map_image.onload = function () {
+	mapImage.onload = function () {
 
-		let width = map_image.width;
-		let height = map_image.height;
+		let width = mapImage.width;
+		let height = mapImage.height;
 
 		let extent = [0, 0, width, height];
 
@@ -27,7 +28,7 @@ export function setupMap() {
 			layers: [
 				new ol.layer.Image({
 					source: new ol.source.ImageStatic({
-						url: image_url,
+						url: mapPath,
 						projection: projection,
 						imageExtent: extent
 					})
