@@ -33,6 +33,12 @@ let database = {
 			description: null,
 			imageURL: null,
 			sheetURL: null
+		},
+		"gyen": {
+			name: "gyen",
+			description: null,
+			imageURL: null,
+			sheetURL: null
 		}
 	},
 
@@ -57,15 +63,15 @@ let database = {
 		}
 	},
 
-	'outros': {
+	'others': {
 		"relógio misterioso": {
-			type: "item",		// Type must belong to otherLoreTypes array
+			type: "itens",		// Type must belong to otherLoreTypes array
 			name: "relógio misterioso",
 			description: null,
 			imageURL: null
 		},
 		"mixolydia": {
-			type: "divindade",
+			type: "divindades",
 			name: "mixolydia",
 			description: null,
 			imageURL: null
@@ -78,12 +84,22 @@ let database = {
 	database table into an array and calls
 	the callback function with the array as
 	a parameter asynchronously.
+
+	'table' must be either in standardLoreTypes
+	or in otherLoreTypes.
 */
 export async function selectAll(table, callback){
 	let entities = [];
 	table = table.toLowerCase();
 
-	for (let entity in database[table]) entities.push(database[table][entity]);
-	
+	if (standardLoreTypes.includes(table)){
+		for (let entity in database[table])
+			entities.push(database[table][entity]);		
+	} else if (otherLoreTypes.includes(table)){
+		for (let entity in database['others']){
+			if (database['others'][entity].type == table)
+				entities.push(database['others'][entity]);
+		}
+	}
 	callback(entities);
 }

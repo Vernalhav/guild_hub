@@ -30,6 +30,7 @@ export function setupListeners() {
 	$eventDisplay.click(openPreview);
 }
 
+
 function openShowContent(e) {
 	let clickedCategory = $(e.target).text();
 
@@ -40,6 +41,7 @@ function openShowContent(e) {
 	e.preventDefault();
 	$showContent.fadeIn('fast');
 }
+
 
 function closeShowContent(e) {
 	e.preventDefault();

@@ -38,8 +38,6 @@ export function setupMenuInfo(title, loreArray){
 	let $showContentRow = $("#show-content-row");
 	$showContentRow.empty();	// Resets all previous divs
 
-	console.log(loreArray);
-
 	loreArray.forEach((element)=>{
 		$showContentRow.append(createLoreCard(element));
 	});
@@ -76,7 +74,7 @@ function createMenuEntry(title){
 function capitalize(str){
 	str = str.split(" ");
 
-    for (let i = 0, x = str.length; i < x; i++) {
+    for (let i = 0; i < str.length; i++) {
         str[i] = str[i][0].toUpperCase() + str[i].substr(1);
     }
 
