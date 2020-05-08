@@ -81,9 +81,10 @@ export function updateEventPreview(event, defaultImageURL=defaultImagePath){
 	let eventName = capitalize(event.name);
 	let eventSummary = event.summary;
 
-	$("#preview-img").attr("src", previewURL);
-	$("#preview-img").attr("alt", "Imagem de {eventName}");
-
+	$("#preview-img").attr({
+		"src": previewURL,
+		"alt": `Imagem de ${eventName}`
+	});
 	$("#preview-title").text(eventName);
 	$("#preview-summary").text(eventSummary);
 
@@ -94,8 +95,23 @@ export function updateEventPreview(event, defaultImageURL=defaultImagePath){
 /*
 	Given a lore object, display its details in the
 	details menu.
+
+	NOTE: DOES NOT HANDLE REFERENCES FOR NOW
 */
 export function updateDetailsMenu(lore, defaultImageURL=defaultImagePath){
+
+	let imageURL = lore.imageURL || defaultImageURL;
+	let loreType = lore.type.toUpperCase();
+	let loreDescription = lore.description || "Description not provided";
+	let loreName = capitalize(lore.name);
+
+	$("#details-content > .details-img").attr({
+		"src": imageURL,
+		"alt": `Imagem de ${loreName}`
+	});
+	$("#details-content > .details-type").text(loreType);
+	$("#details-content > .details-title").text(loreName);
+	$("#details-content > .details-description").text(loreDescription);
 
 }
 
