@@ -76,25 +76,16 @@
             <i class="fas fa-arrow-left icon-primary bg-light" id="details-return-arrow"></i>
             <div id="details-content">
                 <img src="img/event-img.jpg" alt="Imagem de uma tocha para representar o evento"class="details-img">
-                <p class="details-text text-center">Evento</p>
+                <p class="details-text text-center">
+                    <!-- The details type will get dynamically filled in with JS -->
+                </p>
                 <div class="line text-center"></div>
-                <h1 class="title text-center">O Sequestro do Anão</h1>
-                <p class="description p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eos
-                    quam aut non molestias dignissimos possimus. Quos dolorem enim quasi incidunt ipsa ad a sit placeat.
-                    Exercitationem velit et eius dolor consectetur molestiae modi ipsam placeat, iste cupiditate,
-                    possimus accusamus, rem ea cum reiciendis? Illum, id ipsa? Dignissimos accusamus, ducimus iusto non
-                    fuga officia similique itaque? Maxime, similique dolores molestias quod in quos id, fugiat voluptate
-                    recusandae saepe iure ipsa, minima asperiores reprehenderit illo magni neque atque. Libero fugiat
-                    quos tempora eum atque explicabo, alias dolor et necessitatibus similique, doloremque neque maxime
-                    soluta nostrum iure est assumenda temporibus ut aut laboriosam. Debitis, numquam voluptate
-                    repellendus tenetur explicabo vitae ducimus autem cum! Tenetur expedita ab officia a blanditiis ex
-                    consequatur excepturi molestiae? Harum commodi delectus optio hic magnam, quos animi. Tempora,
-                    consequatur nostrum architecto ab nemo asperiores ratione nisi odio eum ad? Earum possimus eveniet
-                    doloribus magnam ab repellat at. Asperiores atque ut cupiditate, dolorem consequuntur tempore odit
-                    fugit itaque beatae optio porro mollitia et nemo eius nobis, incidunt velit recusandae quas
-                    reiciendis nostrum magnam qui temporibus. Qui fuga fugiat rem maiores inventore at assumenda
-                    voluptatibus enim, eveniet dolore incidunt, nisi nemo labore ratione expedita explicabo, soluta
-                    consequuntur cupiditate facere ipsam!</p>
+                <h1 class="title text-center">
+                    <!-- The details title will get dynamically filled in with JS -->
+                </h1>
+                <p class="description p-4">
+                    <!-- The details description will get dynamically filled in with JS -->
+                </p>
                 <h2 class="related-title ml-4">Relacionados</h2>
                 <div class="row px-4">
                     <div class="p-1 col-6 col-xl-4">
@@ -272,12 +263,15 @@
         <div class="row justify-content-center">
             <section id="event-display" class="col-10 col-sm-8 col-lg-5 row justify-content-center">
                 <div class="content d-flex col-10 flex-column align-items-center">
-                    <img src="img/event-img.jpg" alt="Imagem de uma tocha para representar o evento" class="open">
+                    <img id="preview-img" class="open"> <!-- Dynamic content -->
                     <p class="event-text text-center open">Evento</p>
                     <div class="line open"></div>
-                    <h1 class="title text-center">O Sequestro do Anão</h1>
-                    <p class="short-description text-center open">Um elfo atravessando uma fria floresta não esperava
-                        encontrar um anão preso em sua carruagem quebrada</p>
+                    <h1 id="preview-title" class="title text-center">
+                        <!-- Dynamic content -->
+                    </h1>
+                    <p id="preview-summary" class="short-description text-center open">
+                        <!-- Dynamic content -->
+                    </p>
                 </div>
             </section>
         </div>

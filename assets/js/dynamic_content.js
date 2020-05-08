@@ -1,14 +1,15 @@
 import {defaultImagePath, standardLoreTypes, otherLoreTypes} from './config.js';
+import {selectAll} from './database.js';
 
 
 /*
 	Returns an HTML card with the content
 	from the lore object
 */
-function createLoreCard(lore, defaultImage=defaultImagePath) {
+function createLoreCard(lore, defaultImageURL=defaultImagePath) {
 	
 	let name = capitalize(lore.name);
-	let imageURL = lore.imageURL || defaultImage;
+	let imageURL = lore.imageURL || defaultImageURL;
 
 	let cardDivString = 
 		`<div class="p-2 col-6 col-md-4 col-lg-3">
@@ -67,6 +68,27 @@ function createMenuEntry(title){
 
 	return $(`<li><i class="fas fa-arrow-right"></i>
 			<a href="javascript:;" class="side-menu-entry">${title}</a></li>`);
+}
+
+
+export function updateEventPreview(event, defaultImageURL=defaultImagePath){
+	let previewURL = event.imageURL || defaultImageURL;
+	let eventName = capitalize(event.name);
+	let eventSummary = event.summary;
+
+	$("#preview-img").attr("src", previewURL);
+	$("#preview-title").text(eventName);
+	$("#preview-summary").text(eventSummary);
+
+}
+
+
+/* Sets up default event on startup */
+export function setupEventPreview(){
+	// TEST ONLY. NOT A GOOD IMPLEMENTATION
+	selectAll('eventos', eventArray => {
+		updateEventPreview(eventArray[1]);
+	});
 }
 
 
