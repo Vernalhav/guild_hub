@@ -43,7 +43,18 @@ let database = {
 	},
 
 	'eventos': {
-
+		"o sequestro do anão": {
+			name: "o sequestro do anão",
+			imageURL: "img/event-img.jpg",
+			summary: "Um elfo atravessando uma fria floresta não esperava encontrar um anão preso em sua carruagem quebrada",
+			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eos quam aut non molestias dignissimos possimus. Quos dolorem enim quasi incidunt ipsa ad a sit placeat. Exercitationem velit et eius dolor consectetur molestiae modi ipsam placeat, iste cupiditate, possimus accusamus, rem ea cum reiciendis? Illum, id ipsa? Dignissimos accusamus, ducimus iusto non fuga officia similique itaque? Maxime, similique dolores molestias quod in quos id, fugiat voluptate recusandae saepe iure ipsa, minima asperiores reprehenderit illo magni neque atque. Libero fugiat quos tempora eum atque explicabo, alias dolor et necessitatibus similique, doloremque neque maxime soluta nostrum iure est assumenda temporibus ut aut laboriosam. Debitis, numquam voluptate repellendus tenetur explicabo vitae ducimus autem cum! Tenetur expedita ab officia a blanditiis ex consequatur excepturi molestiae? Harum commodi delectus optio hic magnam, quos animi. Tempora, consequatur nostrum architecto ab nemo asperiores ratione nisi odio eum ad? Earum possimus eveniet doloribus magnam ab repellat at. Asperiores atque ut cupiditate, dolorem consequuntur tempore odit fugit itaque beatae optio porro mollitia et nemo eius nobis, incidunt velit recusandae quas reiciendis nostrum magnam qui temporibus. Qui fuga fugiat rem maiores inventore at assumenda voluptatibus enim, eveniet dolore incidunt, nisi nemo labore ratione expedita explicabo, soluta consequuntur cupiditate facere ipsam!"
+		},
+		"os primeiros membros": {
+			name: "os primeiros membros",
+			imageURL: null,
+			summary: "Numa noite fria ao pé das montanhas de Kahsemir, o Bar do Brás recebia mais visitantes do que o normal. Essas pessoas logo se tornariam membros da Guilda das Lendas",
+			description: null
+		}
 	},
 
 	'locais': {
