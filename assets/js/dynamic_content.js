@@ -71,14 +71,31 @@ function createMenuEntry(title){
 }
 
 
+/*
+	Given an event, display it as the previewed item.
+	This function also displays the event's details in
+	the details menu by calling updateDetailsMenu
+*/
 export function updateEventPreview(event, defaultImageURL=defaultImagePath){
 	let previewURL = event.imageURL || defaultImageURL;
 	let eventName = capitalize(event.name);
 	let eventSummary = event.summary;
 
 	$("#preview-img").attr("src", previewURL);
+	$("#preview-img").attr("alt", "Imagem de {eventName}");
+
 	$("#preview-title").text(eventName);
 	$("#preview-summary").text(eventSummary);
+
+	updateDetailsMenu(event, defaultImageURL);
+}
+
+
+/*
+	Given a lore object, display its details in the
+	details menu.
+*/
+export function updateDetailsMenu(lore, defaultImageURL=defaultImagePath){
 
 }
 

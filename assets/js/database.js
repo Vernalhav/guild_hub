@@ -75,17 +75,25 @@ let database = {
 	},
 
 	'others': {
-		"relógio misterioso": {
-			type: "itens",		// Type must belong to otherLoreTypes array
-			name: "relógio misterioso",
-			description: null,
-			imageURL: null
+		'itens': {
+			"relógio misterioso": {
+				name: "relógio misterioso",
+				description: null,
+				imageURL: null
+			},
+			"dardo envenenado": {
+				name: "dardo envenenado",
+				description: null,
+				imageURL: null
+			}
 		},
-		"mixolydia": {
-			type: "divindades",
-			name: "mixolydia",
-			description: null,
-			imageURL: null
+
+		'divindades': {
+			"mixolydia": {
+				name: "mixolydia",
+				description: null,
+				imageURL: null
+			}
 		}
 	}
 };
@@ -97,19 +105,21 @@ let database = {
 	a parameter asynchronously.
 
 	'table' must be either in standardLoreTypes
-	or in otherLoreTypes.
+	or in otherLoreTypes. Callback is called even
+	when table is not valid, passing an empty aray
 */
 export async function selectAll(table, callback){
+	
 	let entities = [];
 	table = table.toLowerCase();
 
 	if (standardLoreTypes.includes(table)){
 		for (let entity in database[table])
-			entities.push(database[table][entity]);		
+			entities.push(database[table][entity]);
+
 	} else if (otherLoreTypes.includes(table)){
-		for (let entity in database['others']){
-			if (database['others'][entity].type == table)
-				entities.push(database['others'][entity]);
+		for (let entity in database['others'][table]){
+			entities.push(database['others'][table][entity]);
 		}
 	}
 	callback(entities);
