@@ -58,9 +58,9 @@ export function setupMenuInfo(title, loreArray) {
 	$("#show-content > .show-content-title").text(title);
 
 	let $showContentRow = $("#show-content-row");
-	$showContentRow.empty();	// Resets all previous divs
+	$showContentRow.empty();	// Resets all children divs
 
-	loreArray.forEach((element)=>{
+	loreArray.forEach(element=>{
 		$showContentRow.append(createLoreCard(element));
 	});
 }
@@ -145,6 +145,17 @@ export function setupEventPreview() {
 	// TEST ONLY. NOT A GOOD IMPLEMENTATION
 	selectAll('eventos', eventArray => {
 		updateEventPreview(eventArray[1]);
+	});
+}
+
+
+export function setupContentForms(){
+	let $typeSelect = $("#type-select");
+
+	otherLoreTypes.forEach(loreType=>{
+		loreType = capitalize(loreType);
+		let currentOption = $(`<option value="${loreType}">${loreType}</option>`);
+		$typeSelect.append(currentOption);
 	});
 }
 

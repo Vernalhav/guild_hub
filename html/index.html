@@ -171,6 +171,8 @@
                         role="tab" aria-controls="nav-event" aria-selected="true">Evento</a>
                     <a class="nav-item nav-link disabled" id="nav-location-tab" data-toggle="tab" href="#nav-location"
                         role="tab" aria-controls="nav-location" aria-selected="false">Locais</a>
+                    <a class="nav-item nav-link" id="nav-character-tab" data-toggle="tab" href="#nav-characters" role="tab"
+                        aria-controls="nav-others" aria-selected="false">Personagens</a>
                     <a class="nav-item nav-link" id="nav-others-tab" data-toggle="tab" href="#nav-others" role="tab"
                         aria-controls="nav-others" aria-selected="false">Outros</a>
                 </div>
@@ -208,12 +210,12 @@
                     <!-- Resumo -->
                     <div class="form-group">
                         <label for="event-summary">Resumo</label>
-                        <textarea class="form-control" id="event-summary" rows="1"></textarea>
+                        <textarea class="form-control" id="event-summary" maxlength="250" rows="2"></textarea>
                     </div>
                     <!-- Descrição -->
                     <div class="form-group">
                         <label for="event-description">Descrição</label>
-                        <textarea class="form-control" id="event-description" rows="3"></textarea>
+                        <textarea class="form-control" id="event-description" rows="5"></textarea>
                     </div>
                     <!-- Referências -->
                     <!-- Criar -->
@@ -222,14 +224,36 @@
                 <div class="tab-pane fade" id="nav-location" role="tabpanel" aria-labelledby="nav-location-tab">
                     <h1 class="display-1">LOCATION FORMS</h1>
                 </div>
+                <div class="tab-pane fade" id="nav-characters" role="tabpanel" aria-labelledby="nav-caracters-tab">
+                    <!-- Nome -->
+                    <div class="form-group">
+                        <label for="other-name">Nome</label>
+                        <input type="text" class="form-control" id="character-name" placeholder="Nome da coisa">
+                    </div>
+                    <!-- Imagem -->
+                    <div class="form-group">
+                        <label for="character-image">Imagem</label>
+                        <input type="file" class="form-control-file" id="character-image">
+                    </div>
+                    <!-- Ficha -->
+                    <div class="form-group">
+                        <label for="character-sheet">Link para a ficha</label>
+                        <input class="form-control" id="character-description" rows="1"></input>
+                    </div>
+                    <!-- Descrição -->
+                    <div class="form-group">
+                        <label for="character-description">Descrição</label>
+                        <textarea class="form-control" id="character-description" rows="3"></textarea>
+                    </div>
+                    <!-- Referências -->
+                    <!-- Criar -->
+                    <button type="submit" class="btn btn-complementary">Criar</button>
+                </div>
                 <div class="tab-pane fade" id="nav-others" role="tabpanel" aria-labelledby="nav-others-tab">
                     <!-- Tipo -->
                     <div class="form-group">
+                        <label for="type-select">Selecione um outro tipo para adicionar</label>
                         <select class="custom-select" id="type-select">
-                            <option selected>Escolha</option>
-                            <option value="character">Pessoa</option>
-                            <option value="divinity">Divindade</option>
-                            <option value="item">Item</option>
                         </select>
                     </div>
                     <!-- Nome -->
