@@ -1,6 +1,9 @@
 import {defaultImagePath, standardLoreTypes, otherLoreTypes} from './config.js';
-import {selectAll} from './database.js';
+import {selectAll, selectSingle} from './database.js';
+import {openDetails, closeShowContent} from './listeners.js';
 
+
+export let currentEvent;
 
 /*
 	Returns an HTML card with the content
@@ -16,12 +19,30 @@ function createLoreCard(lore, defaultImageURL=defaultImagePath) {
 	        <div class="card p-0">
 	            <img src=${imageURL} alt="Imagem de ${name}" class="card-img-top">
 	            <div class="card-body text-center">
-	                <a class="card-title">${name}</a>
+	                <a class="card-title" href="javascript:;">${name}</a>
 	            </div>
 	        </div>
 	    </div>`;
 
-	return $(cardDivString);
+	let card = $(cardDivString);
+	card.click(detailsClicked);
+
+	return card;
+}
+
+
+function detailsClicked(e) {
+
+	let $target = $(e.target);
+	let loreTitle = $target.closest(".card").find(".card-title").text();
+	let loreType = $target.closest("#show-content").find(".show-content-title").text();
+
+	selectSingle(loreType, loreTitle, loreElement=>{
+		updateDetailsMenu(loreElement);
+	});
+
+	closeShowContent(e);
+	openDetails(e);
 }
 
 
@@ -33,8 +54,8 @@ function createLoreCard(lore, defaultImageURL=defaultImagePath) {
 	title: string representing window header
 	loreArray: array of lore objects to display
 */
-export function setupMenuInfo(title, loreArray){
-	$("#show-content > p").text(title);
+export function setupMenuInfo(title, loreArray) {
+	$("#show-content > .show-content-title").text(title);
 
 	let $showContentRow = $("#show-content-row");
 	$showContentRow.empty();	// Resets all previous divs
@@ -63,7 +84,7 @@ export function setupSidebarMenu() {
 	Returns a sidebar list
 	item with title as its text 
 */
-function createMenuEntry(title){
+function createMenuEntry(title) {
 	title = capitalize(title);
 
 	return $(`<li><i class="fas fa-arrow-right"></i>
@@ -71,20 +92,56 @@ function createMenuEntry(title){
 }
 
 
-export function updateEventPreview(event, defaultImageURL=defaultImagePath){
+/*
+	Given an event, display it as the previewed item.
+	This function also displays the event's details in
+	the details menu by calling updateDetailsMenu
+*/
+export function updateEventPreview(event, defaultImageURL=defaultImagePath) {
+
+	currentEvent = event;
+	
 	let previewURL = event.imageURL || defaultImageURL;
 	let eventName = capitalize(event.name);
 	let eventSummary = event.summary;
 
-	$("#preview-img").attr("src", previewURL);
+	$("#preview-img").attr({
+		"src": previewURL,
+		"alt": `Imagem de ${eventName}`
+	});
 	$("#preview-title").text(eventName);
 	$("#preview-summary").text(eventSummary);
+
+	updateDetailsMenu(event, defaultImageURL);
+}
+
+
+/*
+	Given a lore object, display its details in the
+	details menu.
+
+	NOTE: DOES NOT HANDLE REFERENCES FOR NOW
+*/
+export function updateDetailsMenu(lore, defaultImageURL=defaultImagePath) {
+
+	let imageURL = lore.imageURL || defaultImageURL;
+	let loreType = lore.type.toUpperCase();
+	let loreDescription = lore.description || "Description not provided";
+	let loreName = capitalize(lore.name);
+
+	$("#details-content > .details-img").attr({
+		"src": imageURL,
+		"alt": `Imagem de ${loreName}`
+	});
+	$("#details-content > .details-type").text(loreType);
+	$("#details-content > .details-title").text(loreName);
+	$("#details-content > .details-description").text(loreDescription);
 
 }
 
 
 /* Sets up default event on startup */
-export function setupEventPreview(){
+export function setupEventPreview() {
 	// TEST ONLY. NOT A GOOD IMPLEMENTATION
 	selectAll('eventos', eventArray => {
 		updateEventPreview(eventArray[1]);
@@ -93,7 +150,7 @@ export function setupEventPreview(){
 
 
 /* Capitalize first letter of each word in the string */
-function capitalize(str){
+function capitalize(str) {
 	str = str.split(" ");
 
     for (let i = 0; i < str.length; i++) {
