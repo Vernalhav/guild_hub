@@ -26,6 +26,7 @@
     scrollbar-width: none;
     padding-bottom: 2rem;
     padding-top: .5rem;
+    overflow-x: hidden;
 }
 
 .card,
