@@ -1,5 +1,5 @@
 import {mapEnable} from "./map.js";
-import {setupMenuInfo} from "./dynamic_content.js";
+import {setupMenuInfo, updateDetailsMenu, currentEvent} from "./dynamic_content.js";
 import {selectAll} from "./database.js";
 
 // Assign buttons onclick methods
@@ -87,7 +87,12 @@ export function openDetails(e) {
 
 function openPreview(e) {
 	e.stopPropagation();
-	$eventDisplay.addClass("open").on('click', openDetails);
+	$eventDisplay.addClass("open").on('click', function(){
+		updateDetailsMenu(currentEvent);
+		openDetails(e);
+		closePreview(e);
+	});
+
 	$map.css("filter", "brightness(60%)").on('click', closePreview);
 	previewOpen = true;
 	mapEnable(false);

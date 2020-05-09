@@ -3,6 +3,8 @@ import {selectAll, selectSingle} from './database.js';
 import {openDetails, closeShowContent} from './listeners.js';
 
 
+export let currentEvent;
+
 /*
 	Returns an HTML card with the content
 	from the lore object
@@ -96,6 +98,9 @@ function createMenuEntry(title) {
 	the details menu by calling updateDetailsMenu
 */
 export function updateEventPreview(event, defaultImageURL=defaultImagePath) {
+
+	currentEvent = event;
+	
 	let previewURL = event.imageURL || defaultImageURL;
 	let eventName = capitalize(event.name);
 	let eventSummary = event.summary;

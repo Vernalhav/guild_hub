@@ -154,8 +154,6 @@ export async function selectSingle(table, primaryKey, callback) {
 	table = table.toLowerCase();
 	primaryKey = primaryKey.toLowerCase();
 
-	console.log(table, primaryKey);
-
 	if (standardLoreTypes.includes(table))
 		lore = database[table][primaryKey];
 
