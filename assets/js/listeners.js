@@ -43,7 +43,7 @@ function openShowContent(e) {
 }
 
 
-function closeShowContent(e) {
+export function closeShowContent(e) {
 	e.stopPropagation();
 	$showContent.fadeOut('fast');
 }
@@ -74,7 +74,7 @@ function closeDetails(e) {
 	mapEnable(true);
 }
 
-function openDetails(e) {
+export function openDetails(e) {
 	e.stopPropagation();
 	closePreview(e);
 	closeMenu(e);

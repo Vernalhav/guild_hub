@@ -120,7 +120,7 @@ let database = {
 	or in otherLoreTypes. Callback is called even
 	when 'table' is not valid, passing an empty array
 */
-export async function selectAll(table, callback){
+export async function selectAll(table, callback) {
 	
 	let entities = [];
 	table = table.toLowerCase();
@@ -136,4 +136,31 @@ export async function selectAll(table, callback){
 	}
 
 	callback(entities);
+}
+
+
+/*
+	This function finds a single lore entry whose
+	primary key is in table. Calls the callback
+	function with the lore object if found, or null.
+
+	'table' must be either in standardLoreTypes
+	or in otherLoreTypes. Callback is called even
+	when 'table' is not valid, passing null.
+*/
+export async function selectSingle(table, primaryKey, callback) {
+
+	let lore = null;
+	table = table.toLowerCase();
+	primaryKey = primaryKey.toLowerCase();
+
+	console.log(table, primaryKey);
+
+	if (standardLoreTypes.includes(table))
+		lore = database[table][primaryKey];
+
+	else if (otherLoreTypes.includes(table))
+		lore = database['others'][table][primaryKey];
+
+	callback(lore || null);
 }
