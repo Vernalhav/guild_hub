@@ -149,7 +149,7 @@ export function setupEventPreview() {
 }
 
 
-export function setupContentForms(){
+export function setupContentForms() {
 	let $typeSelect = $("#type-select");
 
 	otherLoreTypes.forEach(loreType=>{
@@ -157,6 +157,35 @@ export function setupContentForms(){
 		let currentOption = $(`<option value="${loreType}">${loreType}</option>`);
 		$typeSelect.append(currentOption);
 	});
+}
+
+
+/*
+	NOT WORKING UNTIL WE DEFINE #toast-area IN INDEX.HTML!
+
+	Shows a toast to the user that fades
+	after specified delay in ms. Message
+	content appears in the body and headerMsg
+	appears as the toast header.
+*/
+function toast(message, delay=1000, headerMsg=""){
+
+	let toast = $(
+		`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+			<div class="toast-header">
+	        	<strong class="mr-auto">${headerMsg}</strong>
+	        	<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+	          		<span aria-hidden="true">&times;</span>
+	        	</button>
+	      	</div>
+	      	<div class="toast-body">
+	        	${message}
+	      	</div>
+    	</div>`);
+
+	// toast.toast({delay: delay});
+	// $("#toast-area").append(toast);
+	// toast.toast("show");
 }
 
 

@@ -1,6 +1,7 @@
 import {mapEnable} from "./map.js";
 import {setupMenuInfo, updateDetailsMenu, currentEvent} from "./dynamic_content.js";
 import {selectAll} from "./database.js";
+import {submitEvent, submitLocation, submitCharacter, submitOtherLore} from "./forms.js";
 
 // Assign buttons onclick methods
 
@@ -9,7 +10,6 @@ let $contentDetails = $("#content-details");
 let $main = $('main');
 let $eventDisplay = $('#event-display');
 let $map = $('#map');
-let $timelines = $('#timelines');
 let $loginForm = $("#login-form");
 let $contentForm = $("#content-form");
 let $showContent = $("#show-content");
@@ -26,6 +26,11 @@ export function setupListeners() {
 	$("#show-content-return-arrow").click(closeShowContent);
 	
 	$(".side-menu-entry").click(openShowContent);
+
+	$("#add-event-form").submit(submitEvent);
+	$("#add-location-form").submit(submitLocation);
+	$("#add-character-form").submit(submitCharacter);
+	$("#add-other-form").submit(submitOtherLore);
 
 	$eventDisplay.click(openPreview);
 }
