@@ -179,101 +179,115 @@
             </nav>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-event" role="tabpanel" aria-labelledby="nav-event-tab">
-                    <!-- Localização -->
-                    <!-- Nome -->
-                    <div class="form-group">
-                        <label for="event-name">Nome</label>
-                        <input type="text" class="form-control" id="event-name" placeholder="Nome da coisa">
-                    </div>
-                    <!-- Época -->
-                    <div class="form-row">
-                        <div class="form-group col-6 col-md-3">
-                            <label for="event-year">Ano</label>
-                            <input type="number" class="form-control" id="event-year">
+                    <form id="add-event-form">
+                        <!-- Localização -->
+                        <!-- Nome -->
+                        <div class="form-group">
+                            <label for="event-name">Nome</label>
+                            <input type="text" class="form-control primary-key-input" id="event-name" required>
                         </div>
-                        <div class="form-group col-6 col-md-3 align-self-end">
-                            <select class="custom-select" id="year-select">
-                                <option value="aE">a.E.</option>
-                                <option value="dE" selected>d.E.</option>
-                            </select>
+                        <!-- Época -->
+                        <div class="form-row">
+                            <div class="form-group col-6 col-md-3">
+                                <label for="event-year">Ano</label>
+                                <input type="number" class="form-control" id="event-year" required>
+                            </div>
+                            <div class="form-group col-6 col-md-3 align-self-end">
+                                <select class="custom-select" id="year-select">
+                                    <option value="aE">a.E.</option>
+                                    <option value="dE" selected>d.E.</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="event-week">Semana</label>
+                                <input type="number" class="form-control" id="event-week">
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="event-week">Semana</label>
-                            <input type="number" class="form-control" id="event-week">
+                        <!-- Imagem -->
+                        <div class="form-group">
+                            <label for="event-image">URL da Imagem</label>
+                            <!-- Until we decide how we want to store things in the server, it's best to use only URLs since local paths need to be downloadad and are less versatile -->
+                            <!--input type="file" class="form-control-file" id="event-image"-->
+                            <input type="url" class="form-control" id="event-image" rows="1"></input>
                         </div>
-                    </div>
-                    <!-- Imagem -->
-                    <div class="form-group">
-                        <label for="event-image">Imagem</label>
-                        <input type="file" class="form-control-file" id="event-image">
-                    </div>
-                    <!-- Resumo -->
-                    <div class="form-group">
-                        <label for="event-summary">Resumo</label>
-                        <textarea class="form-control" id="event-summary" maxlength="250" rows="2"></textarea>
-                    </div>
-                    <!-- Descrição -->
-                    <div class="form-group">
-                        <label for="event-description">Descrição</label>
-                        <textarea class="form-control" id="event-description" rows="5"></textarea>
-                    </div>
-                    <!-- Referências -->
-                    <!-- Criar -->
-                    <button type="submit" class="btn btn-complementary">Criar</button>
+                        <!-- Resumo -->
+                        <div class="form-group">
+                            <label for="event-summary">Resumo</label>
+                            <textarea class="form-control" id="event-summary" maxlength="250" rows="2"></textarea>
+                        </div>
+                        <!-- Descrição -->
+                        <div class="form-group">
+                            <label for="event-description">Descrição</label>
+                            <textarea class="form-control" id="event-description" rows="5"></textarea>
+                        </div>
+                        <!-- Referências -->
+                        <!-- Criar -->
+                        <button type="submit" class="btn btn-complementary">Criar</button>
+                    </form>
                 </div>
                 <div class="tab-pane fade" id="nav-location" role="tabpanel" aria-labelledby="nav-location-tab">
-                    <h1 class="display-1">LOCATION FORMS</h1>
+                    <form id="add-location-form">
+                        <h1 class="display-1">LOCATION FORMS</h1>
+                    </form>
                 </div>
                 <div class="tab-pane fade" id="nav-characters" role="tabpanel" aria-labelledby="nav-caracters-tab">
-                    <!-- Nome -->
-                    <div class="form-group">
-                        <label for="other-name">Nome</label>
-                        <input type="text" class="form-control" id="character-name" placeholder="Nome da coisa">
-                    </div>
-                    <!-- Imagem -->
-                    <div class="form-group">
-                        <label for="character-image">Imagem</label>
-                        <input type="file" class="form-control-file" id="character-image">
-                    </div>
-                    <!-- Ficha -->
-                    <div class="form-group">
-                        <label for="character-sheet">Link para a ficha</label>
-                        <input class="form-control" id="character-description" rows="1"></input>
-                    </div>
-                    <!-- Descrição -->
-                    <div class="form-group">
-                        <label for="character-description">Descrição</label>
-                        <textarea class="form-control" id="character-description" rows="3"></textarea>
-                    </div>
-                    <!-- Referências -->
-                    <!-- Criar -->
-                    <button type="submit" class="btn btn-complementary">Criar</button>
+                    <form id="add-character-form">
+                        <!-- Nome -->
+                        <div class="form-group">
+                            <label for="other-name">Nome</label>
+                            <input type="text" class="form-control primary-key-input" id="character-name">
+                        </div>
+                        <!-- Imagem -->
+                        <div class="form-group">
+                            <label for="character-image">URL da Imagem</label>
+                            <!-- Until we decide how we want to store things in the server, it's best to use only URLs since local paths need to be downloadad and are less versatile -->
+                            <!--input type="file" class="form-control-file" id="character-image"-->
+                            <input type="url" class="form-control" id="character-image" rows="1"></input>
+                        </div>
+                        <!-- Ficha -->
+                        <div class="form-group">
+                            <label for="character-sheet">Link para a ficha</label>
+                            <input type="url" class="form-control" id="character-sheet" rows="1"></input>
+                        </div>
+                        <!-- Descrição -->
+                        <div class="form-group">
+                            <label for="character-description">Descrição</label>
+                            <textarea class="form-control" id="character-description" rows="3"></textarea>
+                        </div>
+                        <!-- Referências -->
+                        <!-- Criar -->
+                        <button type="submit" class="btn btn-complementary">Criar</button>
+                    </form>
                 </div>
                 <div class="tab-pane fade" id="nav-others" role="tabpanel" aria-labelledby="nav-others-tab">
-                    <!-- Tipo -->
-                    <div class="form-group">
-                        <label for="type-select">Selecione um outro tipo para adicionar</label>
-                        <select class="custom-select" id="type-select">
-                        </select>
-                    </div>
-                    <!-- Nome -->
-                    <div class="form-group">
-                        <label for="other-name">Nome</label>
-                        <input type="text" class="form-control" id="other-name" placeholder="Nome da coisa">
-                    </div>
-                    <!-- Imagem -->
-                    <div class="form-group">
-                        <label for="other-image">Imagem</label>
-                        <input type="file" class="form-control-file" id="other-image">
-                    </div>
-                    <!-- Descrição -->
-                    <div class="form-group">
-                        <label for="other-description">Descrição</label>
-                        <textarea class="form-control" id="other-description" rows="3"></textarea>
-                    </div>
-                    <!-- Referências -->
-                    <!-- Criar -->
-                    <button type="submit" class="btn btn-complementary">Criar</button>
+                    <form id="add-other-form">
+                        <!-- Tipo -->
+                        <div class="form-group">
+                            <label for="type-select">Selecione um outro tipo para adicionar</label>
+                            <select class="custom-select" id="type-select">
+                            </select>
+                        </div>
+                        <!-- Nome -->
+                        <div class="form-group">
+                            <label for="other-name">Nome</label>
+                            <input type="text" class="form-control" id="other-name">
+                        </div>
+                        <!-- Imagem -->
+                        <div class="form-group">
+                            <label for="other-image">URL da Imagem</label>
+                            <!-- Until we decide how we want to store things in the server, it's best to use only URLs since local paths need to be downloadad and are less versatile -->
+                            <!--input type="file" class="form-control-file" id="other-image"-->
+                            <input type="url" class="form-control" id="other-image" rows="1"></input>
+                        </div>
+                        <!-- Descrição -->
+                        <div class="form-group">
+                            <label for="other-description">Descrição</label>
+                            <textarea class="form-control" id="other-description" rows="3"></textarea>
+                        </div>
+                        <!-- Referências -->
+                        <!-- Criar -->
+                        <button type="submit" class="btn btn-complementary">Criar</button>
+                    </form>
                 </div>
             </div>
         </section>
