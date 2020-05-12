@@ -7,9 +7,17 @@ import {standardLoreTypes, otherLoreTypes} from "./config.js";
 	having to change any other files.
 */
 
+
 // TODO: decide how to model references!
 let database = {
 	'personagens': {
+		"escriba": {
+			type: "personagens",
+			name: "escriba",
+			description: "Um dos primeiros membros da guilda, fiel amigo do Pintassilgo.",
+			imageURL: "https://vignette.wikia.nocookie.net/gwent/images/3/35/Sage.gif/revision/latest?cb=20180802112253",
+			sheetURL: null
+		},
 		"mãe": {
 			type: "personagens",
 			name: "mãe",

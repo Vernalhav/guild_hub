@@ -9,6 +9,11 @@
     padding: 2rem;
 }
 
+#location-map {
+    width: 100%;
+    height: 300px;
+}
+
 #login-form-return-arrow,
 #content-form-return-arrow,
 #show-content-return-arrow {

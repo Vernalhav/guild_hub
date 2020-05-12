@@ -3,6 +3,7 @@ import {mapPath} from './config.js';
 // --- Map Functions
 
 let map;
+let locationMap;
 
 export function setupMap() {
 
@@ -25,6 +26,30 @@ export function setupMap() {
 		map = new ol.Map({
 			target: 'map',
 			controls: [],
+			moveTolerance: 5,
+			layers: [
+				new ol.layer.Image({
+					source: new ol.source.ImageStatic({
+						url: mapPath,
+						projection: projection,
+						imageExtent: extent
+					})
+				})
+			],
+			view: new ol.View({
+				projection: projection,
+				center: ol.extent.getCenter(extent),
+				maxZoom: 4,
+				zoom: 3,
+				smoothExtentConstraint: false,
+				extent: extent
+			})
+		});
+
+		locationMap = new ol.Map({
+			target: 'location-map',
+			controls: [],
+			moveTolerance: 5,
 			layers: [
 				new ol.layer.Image({
 					source: new ol.source.ImageStatic({
@@ -45,6 +70,15 @@ export function setupMap() {
 		});
 	}
 }
+
+
+export function setupLocationMap(){
+	console.log('aaa');
+	// Workaround to fix OpenLayers responsiveness bug
+	if (locationMap)
+		locationMap.updateSize();
+}
+
 
 export function mapEnable(bool) {
 	map.getInteractions().forEach(function (interaction) {

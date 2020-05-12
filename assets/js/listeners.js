@@ -1,4 +1,4 @@
-import {mapEnable} from "./map.js";
+import {mapEnable, setupLocationMap} from "./map.js";
 import {setupMenuInfo, updateDetailsMenu, currentEvent} from "./dynamic_content.js";
 import {selectAll} from "./database.js";
 import {submitEvent, submitLocation, submitCharacter, submitOtherLore} from "./forms.js";
@@ -31,6 +31,8 @@ export function setupListeners() {
 	$("#add-location-form").submit(submitLocation);
 	$("#add-character-form").submit(submitCharacter);
 	$("#add-other-form").submit(submitOtherLore);
+
+	$("#nav-location-tab").on("shown.bs.tab", setupLocationMap);
 
 	$eventDisplay.click(openPreview);
 }
