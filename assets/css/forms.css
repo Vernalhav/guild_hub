@@ -9,6 +9,16 @@
     padding: 2rem;
 }
 
+.map-overlay {
+    color: var(--primary-color1);
+    cursor: default;
+}
+
+#location-map {
+    width: 85%;
+    height: 200px;
+}
+
 #login-form-return-arrow,
 #content-form-return-arrow,
 #show-content-return-arrow {

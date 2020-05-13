@@ -3,6 +3,7 @@ import {mapPath} from './config.js';
 // --- Map Functions
 
 let map;
+let locationMap;
 
 export function setupMap() {
 
@@ -25,6 +26,7 @@ export function setupMap() {
 		map = new ol.Map({
 			target: 'map',
 			controls: [],
+			moveTolerance: 5,
 			layers: [
 				new ol.layer.Image({
 					source: new ol.source.ImageStatic({
@@ -43,11 +45,54 @@ export function setupMap() {
 				extent: extent
 			})
 		});
+
+		let domOverlay = $(`<i class="map-overlay fas fa-angle-down fa-2x"></i>`)[0];
+		let overlay = new ol.Overlay({
+			element: domOverlay,
+			offset: [0, -5],
+			positioning: 'center-center'
+		});
+
+		locationMap = new ol.Map({
+			target: 'location-map',
+			controls: [],
+			moveTolerance: 5,
+			overlays: [overlay],
+			layers: [
+				new ol.layer.Image({
+					source: new ol.source.ImageStatic({
+						url: mapPath,
+						projection: projection,
+						imageExtent: extent
+					})
+				})
+			],
+			view: new ol.View({
+				projection: projection,
+				center: ol.extent.getCenter(extent),
+				maxZoom: 4,
+				zoom: 3,
+				smoothExtentConstraint: false,
+				extent: extent
+			})
+		});
+
+		locationMap.on("click", event=>{
+			let coords = event.coordinate;
+			overlay.setPosition(coords);
+		});
 	}
 }
 
+
+export function setupLocationMap(){
+	// Workaround to fix OpenLayers responsiveness bug
+	locationMap.updateSize();
+}
+
+
 export function mapEnable(bool) {
-	map.getInteractions().forEach(function (interaction) {
+	map.getInteractions().forEach(interaction=>{
 		interaction.setActive(bool);
 	}, this);
 }
