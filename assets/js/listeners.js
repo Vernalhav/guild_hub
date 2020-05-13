@@ -1,6 +1,6 @@
-import {mapEnable, setupLocationMap} from "./map.js";
+import {mapEnable, setupLocationMap, resetFormOverlay, centerMapOn} from "./map.js";
 import {setupMenuInfo, updateDetailsMenu, currentEvent} from "./dynamic_content.js";
-import {selectAll} from "./database.js";
+import {selectAll, selectSingle} from "./database.js";
 import {submitEvent, submitLocation, submitCharacter, submitOtherLore} from "./forms.js";
 
 // Assign buttons onclick methods
@@ -24,24 +24,26 @@ export function setupListeners() {
 	$("#login-form-return-arrow").click(closeLoginForm);
 	$("#content-form-return-arrow").click(closeContentForm);
 	$("#show-content-return-arrow").click(closeShowContent);
-	
+	$eventDisplay.click(openPreview);
+
 	$(".side-menu-entry").click(openShowContent);
+
+	// Workaround for OpenLayers responsiveness issues
+	$("#nav-location-tab").on("shown.bs.tab", setupLocationMap);
+
+	$("#add-location-form").on('reset', resetFormOverlay);
 
 	$("#add-event-form").submit(submitEvent);
 	$("#add-location-form").submit(submitLocation);
 	$("#add-character-form").submit(submitCharacter);
 	$("#add-other-form").submit(submitOtherLore);
-
-	$("#nav-location-tab").on("shown.bs.tab", setupLocationMap);
-
-	$eventDisplay.click(openPreview);
 }
 
 
 function openShowContent(e) {
 	let clickedCategory = $(e.target).text();
 
-	selectAll(clickedCategory, loreArray => {
+	selectAll(clickedCategory, loreArray=>{
 		setupMenuInfo(clickedCategory, loreArray);
 	});
 
@@ -94,6 +96,11 @@ export function openDetails(e) {
 
 function openPreview(e) {
 	e.stopPropagation();
+
+	selectSingle('locais', currentEvent.location, location=>{
+		centerMapOn(location);
+	});
+
 	$eventDisplay.addClass("open").on('click', function(){
 		updateDetailsMenu(currentEvent);
 		openDetails(e);

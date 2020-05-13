@@ -47,10 +47,13 @@ export function setupMap() {
 		});
 
 		let domOverlay = $(`<i class="map-overlay fas fa-angle-down fa-2x"></i>`)[0];
+		
 		let overlay = new ol.Overlay({
 			element: domOverlay,
 			offset: [0, -5],
-			positioning: 'center-center'
+			positioning: 'center-center',
+			position: null,
+			id: 'location-select'
 		});
 
 		locationMap = new ol.Map({
@@ -79,6 +82,7 @@ export function setupMap() {
 
 		locationMap.on("click", event=>{
 			let coords = event.coordinate;
+			console.log(coords);
 			overlay.setPosition(coords);
 		});
 	}
@@ -88,6 +92,24 @@ export function setupMap() {
 export function setupLocationMap(){
 	// Workaround to fix OpenLayers responsiveness bug
 	locationMap.updateSize();
+}
+
+
+export function centerMapOn(location) {
+	if (!location.coordinates) return;
+
+	map.getView().animate({center: location.coordinates});
+}
+
+
+// Returns array of coordinates, or null if overlay is not positioned.
+export function getFormLocation() {
+	return locationMap.getOverlayById('location-select').getPosition();
+}
+
+
+export function resetFormOverlay() {
+	locationMap.getOverlayById('location-select').setPosition(null);
 }
 
 

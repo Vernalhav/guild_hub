@@ -1,4 +1,5 @@
 import {insert} from './database.js';
+import {getFormLocation} from './map.js';
 
 
 // TODO: ADD FORM VALIDATION AND FEEDBACK!
@@ -35,9 +36,19 @@ export async function submitEvent(e) {
 export async function submitLocation(e) {
 	e.preventDefault();
 
+	let lore = {
+		type: "locais",
+		name: $("#location-name").val() || null,
+		coordinates: getFormLocation() || null,
+		description: $("#location-description").val() || null,
+		imageURL: $("#location-image").val() || null,
+		battlemapURL: $("#location-battlemap").val() || null
+	};
+
 	insert(lore, loreObject=>{
 		if (loreObject){
 			// Success toast message
+			$("#add-location-form").trigger("reset");
 		} else {
 			// Failure toast message
 		}

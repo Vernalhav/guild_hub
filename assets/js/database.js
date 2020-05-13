@@ -68,7 +68,7 @@ let database = {
 		"os primeiros membros": {
 			type: "eventos",
 			name: "os primeiros membros",
-			location: null,
+			location: "guilda das lendas",
 			imageURL: null,
 			summary: "Numa noite fria ao pé das montanhas de Kahsemir, o Bar do Brás recebia mais visitantes do que o normal. Essas pessoas logo se tornariam membros da Guilda das Lendas",
 			description: null,
@@ -82,7 +82,7 @@ let database = {
 			name: "rindell",
 			description: null,
 			imageURL: null,
-			coordinates: null,
+			coordinates: [1651.1774182321617, 511.2467358519786],
 			battleMapURL: null
 		},
 		"guilda das lendas": {
@@ -90,7 +90,7 @@ let database = {
 			name: "guilda das lendas",
 			description: null,
 			imageURL: null,
-			coordinates: null,
+			coordinates: [1892.7302384311672, 1043.2918550676998],
 			battleMapURL: null
 		}
 	},
