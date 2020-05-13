@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;700&display=swap');
 
 :root {
     --primary-color1: #94240F;
@@ -26,36 +27,21 @@
 * {
     margin: 0;
     padding: 0;
-    outline: 0;
+    outline: none;
     box-sizing: border-box;
-}
-
-body {
-    font: 400 16px Roboto,
-        sans-serif;
-    line-height: 150%;
-    color: var(--dark-color);
-
-    width: 100vw;
-    height: 100vh;
-    box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.25), inset 2px 2px 4px rgba(0, 0, 0, 0.25);
-}
-
-main {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-
-    transition: all 0.5s;
+    box-shadow: none;
 }
 
 ul {
     list-style-type: none;
 }
 
+a {
+    color: var(--secondary-color);
+}
+
 a:hover {
+    color: var(--secondary-color1);
     text-decoration: underline;
 }
 
@@ -69,35 +55,77 @@ a:hover {
     transition: all .2s ease-in;
 }
 
-#menu-button {
-    position: absolute;
-    top: 1.5rem;
-    left: 1.5rem;
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.5rem;
-
-    background-color: var(--light-color-t);
-    border-radius: 2rem;
+.icon-primary {
     color: var(--primary-color);
-
-    z-index: 2;
 }
 
-#menu-button:hover {
-    background-color: var(--light-color);
+.icon-primary:hover {
     color: var(--primary-color1);
 }
 
-#map {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    bottom: 160px;
+.icon-primary:active {
+    color: var(--primary-color-1);
+}
 
-    background-color: #eee;
-    overflow: scroll;
-    scrollbar-width: none;
+.icon-primary.dark {
+    color: var(--primary-color1);
+}
+
+.icon-primary.dark:hover {
+    background-color: var(--dark-color-t);
+}
+
+.bg-light {
+    background-color: var(--light-color-t) !important;
+}
+
+.bg-light:hover {
+    background-color: var(--light-color) !important;
+}
+
+.btn-primary {
+    color: var(--light-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    color: var(--light-color);
+    background-color: var(--primary-color1);
+    border-color: var(--primary-color1);
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
+    color: var(--light-color);
+    background-color: var(--primary-color-1);
+    border-color: var(--primary-color-1);
+}
+
+.btn-complementary {
+    color: var(--light-color);
+    background-color: var(--complementary-color);
+    border-color: var(--complementary-color);
+}
+
+.btn-complementary:hover {
+    color: var(--light-color);
+    background-color: var(--complementary-color1);
+    border-color: var(--complementary-color1);
+}
+
+.btn-complementary:not(:disabled):not(.disabled).active,
+.btn-complementary:not(:disabled):not(.disabled):active,
+.show>.btn-complementary.dropdown-toggle {
+    color: var(--light-color);
+    background-color: var(--complementary-color-1);
+    border-color: var(--complementary-color-1);
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    color: var(--secondary-color1);
 }
 
 @media (max-width: 767px) {

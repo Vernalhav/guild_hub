@@ -1,0 +1,59 @@
+.form-display {
+    max-height: 500px;
+    background-color: var(--light-color1);
+    z-index: 6;
+    position: absolute;
+    top: 50px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 24px;
+    padding: 2rem;
+}
+
+.map-overlay {
+    color: var(--primary-color1);
+    cursor: default;
+}
+
+#location-map {
+    width: 85%;
+    height: 200px;
+}
+
+#login-form-return-arrow,
+#content-form-return-arrow,
+#show-content-return-arrow {
+    position: absolute;
+    top: .8rem;
+    right: .8rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+}
+
+.tab-pane {
+    max-height: 300px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    padding-bottom: 2rem;
+    padding-top: .5rem;
+    overflow-x: hidden;
+}
+
+.card,
+.card-img-top {
+    border-radius: 1rem;
+    background-color: var(--light-color);
+}
+
+.card-body {
+    padding: .5rem;
+}
+
+.card-title {
+    font-weight: 700;
+}
+
+.card:hover .card-title {
+    text-decoration: underline;
+    cursor: pointer;
+}

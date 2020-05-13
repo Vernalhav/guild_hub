@@ -1,59 +1,30 @@
-function closeMenu(e) {
-    $("#side-menu").css("left", "-100%");
-    $("main").css("filter", "brightness(100%)");
+import {setupListeners} from "./listeners.js";
+import {setupMap} from "./map.js";
+import {setupTimeline} from "./timeline.js"
+import {setupSidebarMenu, setupEventPreview, setupContentForms} from "./dynamic_content.js"
 
-    $("main").on("click", null);
+// --- DOM Variables declaration
+
+let $loginForm = $("#login-form");
+let $contentForm = $("#content-form");
+let $showContent = $("#show-content");
+
+
+// --- Main Code
+
+function main() {
+	setupMap();
+	setupSidebarMenu();
+	setupTimeline();
+	setupContentForms();
+
+	setupEventPreview();
+
+	$loginForm.hide();
+	$contentForm.hide();
+	$showContent.hide();
+	
+	setupListeners();	// Listeners should come after all the site is set up
 }
 
-function openMenu(e) {
-    $("#side-menu").css("left", "0");
-    $("main").css("filter", "brightness(30%)");
-
-    $("main").on("click", closeMenu);
-}
-
-
-function setupMap(){
-
-	image_url = 'img/Condor.png';
-	var map_image = new Image();
-	map_image.src = image_url;
-
-	map_image.onload = function (){
-
-		let width = map_image.width;
-		let height = map_image.height;
-		
-		let extent = [0, 0, width, height];
-
-		let projection = new ol.proj.Projection({
-			code: 'Condor-map',
-			units: 'pixels',
-			extent: extent
-		});
-
-		let map = new ol.Map({
-			target: 'map',
-			controls: [],
-			layers: [
-				new ol.layer.Image({
-					source: new ol.source.ImageStatic({
-						url: image_url,
-						projection: projection,
-						imageExtent: extent
-					})
-				})
-			],
-			view: new ol.View({
-				projection: projection,
-				center: ol.extent.getCenter(extent),
-				maxZoom: 4,
-				zoom: 3,
-    			smoothExtentConstraint: false,
-    			extent: extent
-			})
-		});
-	}
-}
-
-setupMap();
+main();
