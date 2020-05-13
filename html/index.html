@@ -161,7 +161,6 @@
     </div>
 
     <!-- CONTENT FORMS -->
-    </div>
     <div class="row justify-content-center">
         <section id="content-form" class="form-display col-8 col-lg-6">
             <i id="content-form-return-arrow" class="fas fa-arrow-left icon-primary"></i>
@@ -247,10 +246,18 @@
                             <!--input type="file" class="form-control-file" id="location-image"-->
                             <input type="url" class="form-control" id="location-image" rows="1"></input>
                         </div>
+                        <!-- Descrição -->
                         <div class="form-group">
                             <label for="location-description">Descrição</label>
                             <textarea class="form-control" id="location-description" rows="3"></textarea>
                         </div>
+                        <!-- Mapa de batalha (grid) -->
+                        <div class="form-group">
+                            <label for="location-battlemap">URL do Grid (battlemap)</label>
+                            <!-- Until we decide how we want to store things in the server, it's best to use only URLs since local paths need to be downloadad and are less versatile -->
+                            <!--input type="file" class="form-control-file" id="location-battlemap"-->
+                            <input type="url" class="form-control" id="location-battlemap" rows="1"></input>
+                        </div>                       
                         <!-- Referências -->
                         <!-- Criar -->
                         <button type="submit" class="btn btn-complementary">Criar</button>
