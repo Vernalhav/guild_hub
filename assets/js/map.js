@@ -73,15 +73,13 @@ export function setupMap() {
 
 
 export function setupLocationMap(){
-	console.log('aaa');
 	// Workaround to fix OpenLayers responsiveness bug
-	if (locationMap)
-		locationMap.updateSize();
+	locationMap.updateSize();
 }
 
 
 export function mapEnable(bool) {
-	map.getInteractions().forEach(function (interaction) {
+	map.getInteractions().forEach(interaction=>{
 		interaction.setActive(bool);
 	}, this);
 }

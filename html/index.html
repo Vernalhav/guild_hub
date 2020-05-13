@@ -18,7 +18,8 @@
     <title>Guild Hub</title>
 
     <!-- COMMENT THIS OUT IF YOU WISH TO HOST THE NODE SERVER -->
-    <!--<base href="../assets/">-->
+    <!-- Not working anymore due to CORS constraints -->
+    <!--base href="../assets/"-->
 
     <link rel="icon" href="img/guilda-logo.svg">
     <!-- Bootstrap CSS -->
@@ -227,7 +228,32 @@
                 </div>
                 <div class="tab-pane fade" id="nav-location" role="tabpanel" aria-labelledby="nav-location-tab">
                     <form id="add-location-form">
-                        <div id="location-map"></div>
+                        <!-- Nome -->
+                        <div class="form-group">
+                            <label for="other-name">Nome</label>
+                            <input type="text" class="form-control primary-key-input" id="location-name">
+                        </div>
+                        <!-- Seleção de localização -->
+                        <div class="form-group">
+                            <label for="location-map">Clique na localização no mapa</label>
+                            <div class="row justify-content-center">
+                                <div id="location-map"></div>
+                            </div>
+                        </div>
+                        <!-- Imagem -->
+                        <div class="form-group">
+                            <label for="location-image">URL da Imagem</label>
+                            <!-- Until we decide how we want to store things in the server, it's best to use only URLs since local paths need to be downloadad and are less versatile -->
+                            <!--input type="file" class="form-control-file" id="location-image"-->
+                            <input type="url" class="form-control" id="location-image" rows="1"></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="location-description">Descrição</label>
+                            <textarea class="form-control" id="location-description" rows="3"></textarea>
+                        </div>
+                        <!-- Referências -->
+                        <!-- Criar -->
+                        <button type="submit" class="btn btn-complementary">Criar</button>
                     </form>
                 </div>
                 <div class="tab-pane fade" id="nav-characters" role="tabpanel" aria-labelledby="nav-caracters-tab">
