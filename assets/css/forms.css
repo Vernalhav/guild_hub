@@ -9,6 +9,11 @@
     padding: 2rem;
 }
 
+.map-overlay {
+    color: var(--primary-color1);
+    cursor: default;
+}
+
 #location-map {
     width: 85%;
     height: 200px;

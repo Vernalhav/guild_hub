@@ -46,10 +46,18 @@ export function setupMap() {
 			})
 		});
 
+		let domOverlay = $(`<i class="map-overlay fas fa-angle-down fa-2x"></i>`)[0];
+		let overlay = new ol.Overlay({
+			element: domOverlay,
+			offset: [0, -5],
+			positioning: 'center-center'
+		});
+
 		locationMap = new ol.Map({
 			target: 'location-map',
 			controls: [],
 			moveTolerance: 5,
+			overlays: [overlay],
 			layers: [
 				new ol.layer.Image({
 					source: new ol.source.ImageStatic({
@@ -67,6 +75,11 @@ export function setupMap() {
 				smoothExtentConstraint: false,
 				extent: extent
 			})
+		});
+
+		locationMap.on("click", event=>{
+			let coords = event.coordinate;
+			overlay.setPosition(coords);
 		});
 	}
 }
