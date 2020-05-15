@@ -179,12 +179,19 @@
             </nav>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-event" role="tabpanel" aria-labelledby="nav-event-tab">
-                    <form id="add-event-form">
-                        <!-- Localização -->
+                    <form id="add-event-form" autocomplete="off">
                         <!-- Nome -->
                         <div class="form-group">
                             <label for="event-name">Nome</label>
-                            <input type="text" class="form-control primary-key-input" id="event-name" required>
+                            <input type="text" class="form-control" id="event-name" required>
+                        </div>
+                        <!-- Localização -->
+                        <div class="form-group">
+                            <label for="event-location">Local do evento</label>
+                            <input type="text" class="form-control" id="event-location"  list="available-locations" required>
+                            <datalist id="available-locations">
+                                <!-- Dynamic content -->
+                            </datalist>
                         </div>
                         <!-- Época -->
                         <div class="form-row">
@@ -226,11 +233,11 @@
                     </form>
                 </div>
                 <div class="tab-pane fade" id="nav-location" role="tabpanel" aria-labelledby="nav-location-tab">
-                    <form id="add-location-form">
+                    <form id="add-location-form" autocomplete="off">
                         <!-- Nome -->
                         <div class="form-group">
                             <label for="other-name">Nome</label>
-                            <input type="text" class="form-control primary-key-input" id="location-name">
+                            <input type="text" class="form-control" id="location-name">
                         </div>
                         <!-- Seleção de localização -->
                         <div class="form-group">
@@ -264,11 +271,11 @@
                     </form>
                 </div>
                 <div class="tab-pane fade" id="nav-characters" role="tabpanel" aria-labelledby="nav-caracters-tab">
-                    <form id="add-character-form">
+                    <form id="add-character-form" autocomplete="off">
                         <!-- Nome -->
                         <div class="form-group">
                             <label for="other-name">Nome</label>
-                            <input type="text" class="form-control primary-key-input" id="character-name">
+                            <input type="text" class="form-control" id="character-name">
                         </div>
                         <!-- Imagem -->
                         <div class="form-group">
@@ -293,7 +300,7 @@
                     </form>
                 </div>
                 <div class="tab-pane fade" id="nav-others" role="tabpanel" aria-labelledby="nav-others-tab">
-                    <form id="add-other-form">
+                    <form id="add-other-form" autocomplete="off">
                         <!-- Tipo -->
                         <div class="form-group">
                             <label for="type-select">Selecione um outro tipo para adicionar</label>

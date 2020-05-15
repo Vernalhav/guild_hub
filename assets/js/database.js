@@ -73,7 +73,16 @@ let database = {
 			summary: "Numa noite fria ao pé das montanhas de Kahsemir, o Bar do Brás recebia mais visitantes do que o normal. Essas pessoas logo se tornariam membros da Guilda das Lendas",
 			description: null,
 			date: null
-		}
+		},
+		"o mistério da clave de fá": {
+			type: "eventos",
+			name: "o mistério da clave de fá",
+			location: "rindell",
+			imageURL: null,
+			summary: "Qual é a do Marcus, velho?",
+			description: "Ele tava fazendo umas fita",
+			date: null
+		},
 	},
 
 	'locais': {
@@ -175,7 +184,7 @@ export async function selectSingle(table, primaryKey, callback) {
 	callback(lore || null);
 }
 
-
+ 
 /*
 	This function adds a single lore object
 	to the database. Lore must have at least
