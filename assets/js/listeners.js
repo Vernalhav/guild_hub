@@ -1,5 +1,5 @@
 import {mapEnable, setupLocationMap, resetFormOverlay, centerMapOn} from "./map.js";
-import {setupMenuInfo, updateDetailsMenu, currentEvent} from "./dynamic_content.js";
+import {setupMenuInfo, updateDetailsMenu, currentEvent, updateLocationList} from "./dynamic_content.js";
 import {selectAll, selectSingle} from "./database.js";
 import {submitEvent, submitLocation, submitCharacter, submitOtherLore} from "./forms.js";
 
@@ -30,6 +30,7 @@ export function setupListeners() {
 
 	// Workaround for OpenLayers responsiveness issues
 	$("#nav-location-tab").on("shown.bs.tab", setupLocationMap);
+	$("#nav-event-tab").on("show.bs.tab", updateLocationList);
 
 	$("#add-location-form").on('reset', resetFormOverlay);
 

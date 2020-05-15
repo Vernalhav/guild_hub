@@ -143,8 +143,8 @@ export function updateDetailsMenu(lore, defaultImageURL=defaultImagePath) {
 /* Sets up default event on startup */
 export function setupEventPreview() {
 	// TEST ONLY. NOT A GOOD IMPLEMENTATION
-	selectAll('eventos', eventArray => {
-		updateEventPreview(eventArray[1]);
+	selectSingle('eventos', 'os primeiros membros', event=>{
+		updateEventPreview(event);
 	});
 }
 
@@ -156,6 +156,21 @@ export function setupContentForms() {
 		loreType = capitalize(loreType);
 		let currentOption = $(`<option value="${loreType}">${loreType}</option>`);
 		$typeSelect.append(currentOption);
+	});
+
+	updateLocationList();
+}
+
+/* Adds all locations to the location autocomplete dropdown */
+export function updateLocationList() {
+	let $availableLocations = $("#available-locations");
+	$availableLocations.empty();
+
+	selectAll('locais', locationArray=>{
+		locationArray.forEach(location=>{
+			let currentLocation = $(`<option value="${capitalize(location.name)}">`);
+			$availableLocations.append(currentLocation);
+		});
 	});
 }
 

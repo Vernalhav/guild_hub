@@ -8,13 +8,13 @@ import {getFormLocation} from './map.js';
 export async function submitEvent(e) {
 	e.preventDefault();
 
-	// TODO: DECIDE AND IMPLEMENT LOCATION SELECTION
 	// TODO: DECIDE HOW TO MODEL DATES (aE/dE?)
+	// TODO: FORM VALIDATION!
 
 	let lore = {
 		type: "eventos",
 		name: $("#event-name").val() || null,
-		location: null,
+		location: $("#event-location").val() || null,
 		date: null,
 		summary: $("#event-summary").val() || null,
 		description: $("#event-description").val() || null,
