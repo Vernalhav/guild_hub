@@ -98,7 +98,10 @@ export function setupLocationMap(){
 export function centerMapOn(location) {
 	if (!location.coordinates) return;
 
-	map.getView().animate({center: location.coordinates});
+	map.getView().animate({
+		center: location.coordinates,
+		zoom: 4
+	});
 }
 
 
