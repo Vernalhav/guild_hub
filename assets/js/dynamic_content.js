@@ -1,6 +1,7 @@
 import {defaultImagePath, standardLoreTypes, otherLoreTypes} from './config.js';
 import {selectAll, selectSingle} from './database.js';
 import {openDetails, closeShowContent} from './listeners.js';
+import {centerMapOn} from './map.js';
 
 
 export let currentEvent;
@@ -113,6 +114,7 @@ export function updateEventPreview(event, defaultImageURL=defaultImagePath) {
 	$("#preview-summary").text(eventSummary);
 
 	updateDetailsMenu(event, defaultImageURL);
+	centerMapOn(event.location);
 }
 
 
@@ -160,6 +162,7 @@ export function setupContentForms() {
 
 	updateLocationList();
 }
+
 
 /* Adds all locations to the location autocomplete dropdown */
 export function updateLocationList() {
