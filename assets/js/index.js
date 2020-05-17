@@ -1,7 +1,8 @@
 import {setupListeners} from "./listeners.js";
 import {setupMap} from "./map.js";
-import {setupTimeline} from "./timeline.js"
-import {setupSidebarMenu, setupEventPreview, setupContentForms} from "./dynamic_content.js"
+import {setupTimeline} from "./timeline.js";
+import {setupSidebarMenu, setupEventPreview, setupContentForms} from "./dynamic_content.js";
+import {setupDatabase} from "./database.js";
 
 // --- DOM Variables declaration
 
@@ -13,6 +14,8 @@ let $showContent = $("#show-content");
 // --- Main Code
 
 function main() {
+	setupDatabase();
+
 	setupMap();
 	setupSidebarMenu();
 	setupTimeline();
