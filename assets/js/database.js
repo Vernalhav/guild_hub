@@ -9,7 +9,7 @@ import {standardLoreTypes, otherLoreTypes} from "./config.js";
 
 
 // TODO: decide how to model references!
-let database = {
+const sample_database = {
 	'personagens': {
 		"escriba": {
 			type: "personagens",
@@ -146,13 +146,17 @@ export async function selectAll(table, callback) {
 	let entities = [];
 	table = table.toLowerCase();
 
+	let loreTable;
 	if (standardLoreTypes.includes(table)){
-		for (let entity in database[table])
-			entities.push(database[table][entity]);
+		loreTable = JSON.parse(localStorage.getItem(table));
+		for (let entity in loreTable)
+			entities.push(loreTable[entity]);
+	}
+	else if (otherLoreTypes.includes(table)){
+		loreTable = JSON.parse(localStorage.getItem('others'));
 
-	} else if (otherLoreTypes.includes(table)){
-		for (let entity in database['others'][table]){
-			entities.push(database['others'][table][entity]);
+		for (let entity in loreTable[table]){
+			entities.push(loreTable[table][entity]);
 		}
 	}
 
@@ -175,11 +179,15 @@ export async function selectSingle(table, primaryKey, callback) {
 	table = table.toLowerCase();
 	primaryKey = primaryKey.toLowerCase();
 
-	if (standardLoreTypes.includes(table))
-		lore = database[table][primaryKey];
-
-	else if (otherLoreTypes.includes(table))
-		lore = database['others'][table][primaryKey];
+	let loreTable;
+	if (standardLoreTypes.includes(table)){
+		loreTable = JSON.parse(localStorage.getItem(table));
+		lore = loreTable[primaryKey];
+	}
+	else if (otherLoreTypes.includes(table)){
+		loreTable = JSON.parse(localStorage.getItem('others'));
+		lore = loreTable[table][primaryKey];
+	}
 
 	callback(lore || null);
 }
@@ -210,18 +218,21 @@ export async function insert(lore, callback) {
 
 	lore.name = lore.name.toLowerCase();
 	lore.type = lore.type.toLowerCase();
+	let loreTable;
 
 	if (standardLoreTypes.includes(lore.type)){
-		if (database[lore.type] == undefined)
-			database[lore.type] = {};
-
-		database[lore.type][lore.name] = lore;
+		loreTable = JSON.parse(localStorage.getItem(lore.type));
+		loreTable[lore.name] = lore;
+		localStorage.setItem(lore.type, JSON.stringify(loreTable));
 	}
 	else if (otherLoreTypes.includes(lore.type)){
-		if (database['others'][lore.type] == undefined)
-			database['others'][lore.type] = {};
-		
-		database['others'][lore.type][lore.name] = lore;
+		loreTable = JSON.parse(localStorage.getItem('others'));
+
+		if (loreTable[lore.type] == undefined){
+			loreTable[lore.type] = {};
+		}
+		loreTable[lore.type][lore.name] = lore;
+		localStorage.setItem('others', JSON.stringify(loreTable));
 	}
 	else {
 		callback(null);
@@ -229,4 +240,22 @@ export async function insert(lore, callback) {
 	}
 
 	callback(lore);
+}
+
+
+export async function setupDatabase(callback) {
+	if (localStorage.length == 0) populateDatabase();
+	if (callback) callback();
+}
+
+
+/*
+	This function stores the sample_database
+	object in the user's localStorage.
+*/
+function populateDatabase() {
+	standardLoreTypes.forEach(loreType=>{
+		localStorage.setItem(loreType, JSON.stringify(sample_database[loreType]));
+	});
+	localStorage.setItem('others', JSON.stringify(sample_database['others']));
 }
