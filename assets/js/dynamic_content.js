@@ -5,6 +5,7 @@ import {centerMapOn} from './map.js';
 
 
 export let currentEvent;
+export let eventsResume = [];
 
 /*
 	Returns an HTML card with the content
@@ -90,8 +91,19 @@ export function setupTimelineEvents() {
 	
 	let events = [];
 	let $eventsList = $(".events-list");
+	let timelines = {
+		"Guilda": {
+			number: 1
+		},
+		"Personagens": {
+			number: 2
+		},
+		"Mundo": {
+			number: 3
+		},
+	};
 
-	// Get all events on database and sort based on date
+	// Get all events on database and sort by date
 	selectAll("eventos", event => {
 		events.push(event);
 	});
@@ -99,21 +111,45 @@ export function setupTimelineEvents() {
 	events.sort(fieldSorter(['period', 'year', 'week', 'order']));
 	// console.log(events);
 
-	// Resets all children lis
+	// Resets all children lis and set the uls' DOM
 	$.each($eventsList, function() {
 		$(this).empty();
+		timelines[$(this).attr("name")].DOM = $(this);
 	});
+	eventsResume = [];
 
+	// Offset constants in 'vw'
+	const initialOffset = 100, offsetBetweenYears = 20, offsetBetweenWeeks = 10, offsetBetweenOrder = 5;
+	
 	// Insert all events on respectives timelines
-	const initialOffset = 50, offsetBetweenYears = 20, offsetBetweenWeeks = 10, offsetBetweenOrder = 5;
 	let currentOffset = initialOffset, lastEvent = null;
 	events.forEach(event => {
+		// Calculate new offset
 		if (lastEvent) {
-
+			if (event.date.period !== lastEvent.date.period ||event.date.year !== lastEvent.date.year)
+				currentOffset += offsetBetweenYears;
+			else if (event.date.week !== lastEvent.date.week)
+				currentOffset += offsetBetweenWeeks;
+			else
+				currentOffset += offsetBetweenOrder;
 		}
 
+		// Push event to resumes
+		eventsResume.push({
+			offset: currentOffset,
+			title: event.name,
+			date: event.date
+		});
+
+		// Add event to timelines
+		event.timelines.map(t => {
+			timelines[t].DOM.append(createEvent(currentOffset, timelines[t].number));
+		});
 		lastEvent = event;
 	});
+
+	// Update the timelines' widths adding 100vw after the last event
+	$(".timeline").width(`${ currentOffset + 100 }vw`);
 
 }
 
@@ -121,16 +157,14 @@ export function setupTimelineEvents() {
 	Sort function for events by date
 */
 "use strict";
-const fieldSorter = (fields) => (a, b) => fields.map(o => {
-	let dir = 1;
-	if (o[0] === '-') { dir = -1; o = o.substring(1); }
-	return a.date[o] > b.date[o] ? dir : a.date[o] < b.date[o] ? -(dir) : 0;
+const fieldSorter = (fields) => (e1, e2) => fields.map(field => {
+	return e1.date[field] > e2.date[field] ? 1 : e1.date[field] < e2.date[field] ? -1 : 0;
 }).reduce((p, n) => p ? p : n, 0);
 
 
 /*
-	Returns a sidebar list
-	item with title as its text 
+	Returns a event li with respective timeline
+	and offset
 */
 function createEvent(offset, timeline) {
 
@@ -167,11 +201,20 @@ export function updateEventPreview(event, defaultImageURL=defaultImagePath) {
 		"src": previewURL,
 		"alt": `Imagem de ${eventName}`
 	});
-	$("#preview-title").text(eventName);
+	// $("#preview-title").text(eventName);
 	$("#preview-summary").text(eventSummary);
 
 	updateDetailsMenu(event, defaultImageURL);
-	centerMapOn(event.location);
+	event.location && selectSingle('locais', event.location, location => {
+		centerMapOn(location);
+	});
+}
+
+
+export function updateEventDateAndTitle(event) {
+	$("#timeline-year").text(event.date.year + " " + event.date.period);
+	$("#selector-header").text("Semana " + event.date.week);
+	$("#preview-title").text(capitalize(event.title));
 }
 
 
@@ -200,9 +243,9 @@ export function updateDetailsMenu(lore, defaultImageURL=defaultImagePath) {
 
 
 /* Sets up default event on startup */
-export function setupEventPreview() {
+export function setupEventPreview(title) {
 	// TEST ONLY. NOT A GOOD IMPLEMENTATION
-	selectSingle('eventos', 'os primeiros membros', event=>{
+	selectSingle('eventos', title, event=>{
 		updateEventPreview(event);
 	});
 }

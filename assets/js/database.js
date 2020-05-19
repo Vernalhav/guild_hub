@@ -262,7 +262,7 @@ export async function insert(lore, callback) {
 
 
 export async function setupDatabase(callback) {
-	/*if (localStorage.length == 0)*/ populateDatabase();
+	if (localStorage.length == 0) populateDatabase();
 	if (callback) callback();
 }
 

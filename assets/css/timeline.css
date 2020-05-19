@@ -51,7 +51,7 @@
 
 .timeline {
     border-bottom: 4px solid;
-    width: 3000px;
+    /* width: 3000px; */
 }
 
 .events-list {

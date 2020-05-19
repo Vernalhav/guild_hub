@@ -98,7 +98,7 @@ export function openDetails(e) {
 function openPreview(e) {
 	e.stopPropagation();
 
-	selectSingle('locais', currentEvent.location, location=>{
+	currentEvent.location && selectSingle('locais', currentEvent.location, location=>{
 		centerMapOn(location);
 	});
 
@@ -113,7 +113,7 @@ function openPreview(e) {
 	mapEnable(false);
 }
 
-function closePreview(e) {
+export function closePreview(e) {
 	e.stopPropagation();
 	$eventDisplay.removeClass("open").prop("onclick", null).off("click").on('click', openPreview);
 	$map.css("filter", "brightness(100%)").off("click");

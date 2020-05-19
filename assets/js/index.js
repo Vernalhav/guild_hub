@@ -1,7 +1,7 @@
 import {setupListeners} from "./listeners.js";
 import {setupMap} from "./map.js";
 import {setupTimeline} from "./timeline.js";
-import {setupSidebarMenu, setupEventPreview, setupContentForms, setupTimelineEvents} from "./dynamic_content.js";
+import {setupSidebarMenu, setupContentForms, setupTimelineEvents} from "./dynamic_content.js";
 import {setupDatabase} from "./database.js";
 
 // --- DOM Variables declaration
@@ -18,11 +18,9 @@ function main() {
 
 	setupMap();
 	setupSidebarMenu();
-	setupTimeline();
 	setupTimelineEvents();
+	setupTimeline();
 	setupContentForms();
-
-	setupEventPreview();
 
 	$loginForm.hide();
 	$contentForm.hide();
