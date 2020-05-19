@@ -81,6 +81,7 @@
     border-radius: 5rem;
     border: 2px solid var(--dark-color-t);
     background-color: var(--dark-color-2);
-    max-height: 10rem;
-    max-width: 10rem;
+    max-height: 8rem;
+    height: 100%;
+    max-width: 8rem;
 }

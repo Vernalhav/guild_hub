@@ -15,7 +15,13 @@ export async function submitEvent(e) {
 		type: "eventos",
 		name: $("#event-name").val() || null,
 		location: $("#event-location").val() || null,
-		date: null,
+		date: {
+			period: $("#year-select").val() || null,
+			year: $("#event-year").val() || null,
+			week: $("#event-week").val() || null,
+			order: 0
+		},
+		timelines: getTimelines(),
 		summary: $("#event-summary").val() || null,
 		description: $("#event-description").val() || null,
 		imageURL: $("#event-image").val() || null
@@ -30,6 +36,15 @@ export async function submitEvent(e) {
 			// Failure toast message
 		}
 	});
+}
+
+
+function getTimelines() {
+	var timelines = [];
+	$.each($("input[name='event-timeline']:checked"), function () {
+		timelines.push($(this).val());
+	});
+	return timelines;
 }
 
 

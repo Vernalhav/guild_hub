@@ -17,8 +17,10 @@ function createLoreCard(lore, defaultImageURL=defaultImagePath) {
 
 	let cardDivString = 
 		`<div class="p-2 col-6 col-md-4 col-lg-3">
-	        <div class="card p-0">
-	            <img src=${imageURL} alt="Imagem de ${name}" class="card-img-top">
+			<div class="card p-0">
+				<div class="card-img-top-container">
+					<img src=${imageURL} alt="Imagem de ${name}" class="card-img-top">
+				</div>
 	            <div class="card-body text-center">
 	                <a class="card-title" href="javascript:;">${name}</a>
 	            </div>
@@ -78,6 +80,61 @@ export function setupSidebarMenu() {
 	standardLoreTypes.concat(otherLoreTypes).forEach(loreType => {
 		$menuList.append(createMenuEntry(loreType));
 	});
+}
+
+/*
+	Sort and display all the events
+	on their respective timelines
+*/
+export function setupTimelineEvents() {
+	
+	let events = [];
+	let $eventsList = $(".events-list");
+
+	// Get all events on database and sort based on date
+	selectAll("eventos", event => {
+		events.push(event);
+	});
+	events = events[0];
+	events.sort(fieldSorter(['period', 'year', 'week', 'order']));
+	// console.log(events);
+
+	// Resets all children lis
+	$.each($eventsList, function() {
+		$(this).empty();
+	});
+
+	// Insert all events on respectives timelines
+	const initialOffset = 50, offsetBetweenYears = 20, offsetBetweenWeeks = 10, offsetBetweenOrder = 5;
+	let currentOffset = initialOffset, lastEvent = null;
+	events.forEach(event => {
+		if (lastEvent) {
+
+		}
+
+		lastEvent = event;
+	});
+
+}
+
+/*
+	Sort function for events by date
+*/
+"use strict";
+const fieldSorter = (fields) => (a, b) => fields.map(o => {
+	let dir = 1;
+	if (o[0] === '-') { dir = -1; o = o.substring(1); }
+	return a.date[o] > b.date[o] ? dir : a.date[o] < b.date[o] ? -(dir) : 0;
+}).reduce((p, n) => p ? p : n, 0);
+
+
+/*
+	Returns a sidebar list
+	item with title as its text 
+*/
+function createEvent(offset, timeline) {
+
+	return $(`<li class="event timeline-${timeline}" style="left: ${offset}vw;"></li>`);
 }
 
 

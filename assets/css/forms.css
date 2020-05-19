@@ -39,10 +39,20 @@
     overflow-x: hidden;
 }
 
-.card,
-.card-img-top {
+.card {
     border-radius: 1rem;
     background-color: var(--light-color);
+    overflow: hidden;
+}
+
+.card-img-top-container {
+    height: 10rem;
+}
+
+.card-img-top {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .card-body {
