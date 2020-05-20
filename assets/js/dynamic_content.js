@@ -88,8 +88,12 @@ export function setupSidebarMenu() {
 	on their respective timelines
 */
 export function setupTimelineEvents() {
-	
-	let events = [];
+	selectAll("eventos", setupEvents);
+}
+
+
+function setupEvents(events){
+		
 	let $eventsList = $(".events-list");
 	let timelines = {
 		"Guilda": {
@@ -104,12 +108,7 @@ export function setupTimelineEvents() {
 	};
 
 	// Get all events on database and sort by date
-	selectAll("eventos", event => {
-		events.push(event);
-	});
-	events = events[0];
 	events.sort(fieldSorter(['period', 'year', 'week', 'order']));
-	// console.log(events);
 
 	// Resets all children lis and set the uls' DOM
 	$.each($eventsList, function() {
@@ -126,7 +125,7 @@ export function setupTimelineEvents() {
 	events.forEach(event => {
 		// Calculate new offset
 		if (lastEvent) {
-			if (event.date.period !== lastEvent.date.period ||event.date.year !== lastEvent.date.year)
+			if (event.date.period !== lastEvent.date.period || event.date.year !== lastEvent.date.year)
 				currentOffset += offsetBetweenYears;
 			else if (event.date.week !== lastEvent.date.week)
 				currentOffset += offsetBetweenWeeks;
@@ -150,8 +149,8 @@ export function setupTimelineEvents() {
 
 	// Update the timelines' widths adding 100vw after the last event
 	$(".timeline").width(`${ currentOffset + 100 }vw`);
-
 }
+
 
 /*
 	Sort function for events by date
@@ -244,7 +243,6 @@ export function updateDetailsMenu(lore, defaultImageURL=defaultImagePath) {
 
 /* Sets up default event on startup */
 export function setupEventPreview(title) {
-	// TEST ONLY. NOT A GOOD IMPLEMENTATION
 	selectSingle('eventos', title, event=>{
 		updateEventPreview(event);
 	});

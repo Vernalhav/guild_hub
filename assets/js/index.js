@@ -4,13 +4,6 @@ import {setupTimeline} from "./timeline.js";
 import {setupSidebarMenu, setupContentForms, setupTimelineEvents} from "./dynamic_content.js";
 import {setupDatabase} from "./database.js";
 
-// --- DOM Variables declaration
-
-let $loginForm = $("#login-form");
-let $contentForm = $("#content-form");
-let $showContent = $("#show-content");
-
-
 // --- Main Code
 
 function main() {
@@ -22,9 +15,9 @@ function main() {
 	setupTimeline();
 	setupContentForms();
 
-	$loginForm.hide();
-	$contentForm.hide();
-	$showContent.hide();
+	$("#login-form").hide();
+	$("#content-form").hide();
+	$("#show-content").hide();
 	
 	setupListeners();	// Listeners should come after all the site is set up
 }
