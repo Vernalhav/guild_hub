@@ -113,9 +113,9 @@ function setupEvents(events){
 	events.sort(fieldSorter(['period', 'year', 'week', 'order']));
 
 	// Resets all children lis and set the uls' DOM
-	$.each($eventsList, function() {
-		$(this).empty();
-		timelines[$(this).attr("name")].DOM = $(this);
+	$.each($eventsList, function(index, eventList) {
+		$(eventList).empty();
+		timelines[$(eventList).attr("name")].DOM = $(eventList);
 	});
 	eventsResume = [];
 
@@ -157,7 +157,6 @@ function setupEvents(events){
 /*
 	Sort function for events by date
 */
-"use strict";
 const fieldSorter = (fields) => (e1, e2) => fields.map(field => {
 	return e1.date[field] > e2.date[field] ? 1 : e1.date[field] < e2.date[field] ? -1 : 0;
 }).reduce((p, n) => p ? p : n, 0);
