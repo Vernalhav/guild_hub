@@ -1,3 +1,5 @@
+"use strict";
+
 import { eventsResume, updateEventDateAndTitle, setupEventPreview } from "./dynamic_content.js";
 import { closePreview } from "./listeners.js";
 
@@ -52,7 +54,6 @@ function updateNearestEvent() {
 	selected event
 */
 function updateScroll() {
-	// $timelines.scrollLeft((nearestEvent.offset - 48.5) * document.documentElement.clientWidth / 100);
 	$timelines.stop().animate({ scrollLeft: (nearestEvent.offset - 50) * $(window).width() / 100 + 19 }, 500, 'swing', function() {
 		// Update event resume
 		setupEventPreview(nearestEvent.title);

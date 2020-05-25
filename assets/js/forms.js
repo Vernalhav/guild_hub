@@ -1,3 +1,5 @@
+"use strict";
+
 import {insert} from './database.js';
 import {getFormLocation} from './map.js';
 

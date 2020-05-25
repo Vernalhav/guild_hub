@@ -1,3 +1,5 @@
+"use strict";
+
 import {mapPath} from './config.js';
 
 // --- Map Functions

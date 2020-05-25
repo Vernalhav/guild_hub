@@ -1,3 +1,5 @@
+"use strict";
+
 import {standardLoreTypes, otherLoreTypes} from "./config.js";
 
 /*

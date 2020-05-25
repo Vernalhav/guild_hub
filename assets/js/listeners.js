@@ -1,3 +1,5 @@
+"use strict";
+
 import {mapEnable, setupLocationMap, resetFormOverlay, centerMapOn} from "./map.js";
 import {setupMenuInfo, updateDetailsMenu, currentEvent, updateLocationList} from "./dynamic_content.js";
 import {selectAll, selectSingle} from "./database.js";

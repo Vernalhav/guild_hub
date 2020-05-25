@@ -1,3 +1,5 @@
+"use strict";
+
 import {defaultImagePath, standardLoreTypes, otherLoreTypes} from './config.js';
 import {selectAll, selectSingle} from './database.js';
 import {openDetails, closeShowContent} from './listeners.js';
@@ -104,7 +106,7 @@ function setupEvents(events){
 		},
 		"Mundo": {
 			number: 3
-		},
+		}
 	};
 
 	// Get all events on database and sort by date
@@ -141,7 +143,7 @@ function setupEvents(events){
 		});
 
 		// Add event to timelines
-		event.timelines.map(t => {
+		event.timelines.forEach(t => {
 			timelines[t].DOM.append(createEvent(currentOffset, timelines[t].number));
 		});
 		lastEvent = event;
@@ -200,7 +202,7 @@ export function updateEventPreview(event, defaultImageURL=defaultImagePath) {
 		"src": previewURL,
 		"alt": `Imagem de ${eventName}`
 	});
-	// $("#preview-title").text(eventName);
+
 	$("#preview-summary").text(eventSummary);
 
 	updateDetailsMenu(event, defaultImageURL);

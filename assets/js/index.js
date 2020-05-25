@@ -1,3 +1,5 @@
+"use strict";
+
 import {setupListeners} from "./listeners.js";
 import {setupMap} from "./map.js";
 import {setupTimeline} from "./timeline.js";
